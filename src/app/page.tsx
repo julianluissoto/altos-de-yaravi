@@ -7,6 +7,7 @@ import Contact from '@/components/sections/contact';
 import PlacesToVisit from '@/components/sections/places-to-visit';
 import LocationMap from '@/components/sections/location-map';
 import Reviews from '@/components/sections/reviews';
+import { AnimatedSection } from '@/components/shared/animated-section';
 
 export default function Home() {
   return (
@@ -14,12 +15,24 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Accommodations />
-        <Gallery />
-        <Reviews />
-        <PlacesToVisit />
-        <LocationMap />
-        <Contact />
+         <AnimatedSection>
+          <Accommodations />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Gallery />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Reviews />
+        </AnimatedSection>
+        <AnimatedSection>
+          <PlacesToVisit />
+        </AnimatedSection>
+        <AnimatedSection>
+          <LocationMap />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Contact />
+        </AnimatedSection>
       </main>
       <Footer />
     </div>
