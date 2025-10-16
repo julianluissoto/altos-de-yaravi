@@ -8,12 +8,13 @@ import { WhatsappIcon } from "@/components/icons/whatsapp-icon";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar } from "@/components/ui/calendar";
 import React, { useEffect, useRef, useActionState } from "react";
-import { DateRange } from "react-day-picker";
-import { addDays } from "date-fns";
+import { addDays, format } from "date-fns";
 import { useFormStatus } from "react-dom";
 import { sendEmail, FormState } from "@/app/actions/send-email";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const initialState: FormState = {
     message: '',
@@ -30,10 +31,8 @@ function SubmitButton() {
 
 export default function Contact() {
     const { toast } = useToast();
-    const [date, setDate] = React.useState<DateRange | undefined>({
-      from: new Date(),
-      to: addDays(new Date(), 4),
-    });
+    const [checkinDate, setCheckinDate] = React.useState<Date | undefined>(new Date());
+    const [checkoutDate, setCheckoutDate] = React.useState<Date | undefined>(addDays(new Date(), 4));
 
     const [state, formAction] = useActionState(sendEmail, initialState);
     const formRef = useRef<HTMLFormElement>(null);
@@ -47,6 +46,8 @@ export default function Contact() {
             });
             if (!state.issues) {
                 formRef.current?.reset();
+                setCheckinDate(new Date());
+                setCheckoutDate(addDays(new Date(), 4));
             }
         }
     }, [state, toast]);
@@ -57,7 +58,7 @@ export default function Contact() {
                 <div className="mb-12 text-center">
                     <h2 className="font-headline text-4xl font-bold md:text-5xl">Reserva tu Estancia</h2>
                     <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg md:text-xl">
-                        ¿Listo para tu retiro? Consulta la disponibilidad o envíanos un mensaje con cualquier pregunta.
+                        ¿Listo para descanzar? Consulta la disponibilidad o envíanos un whatsapp para reservar.
                     </p>
                 </div>
 
@@ -65,16 +66,29 @@ export default function Contact() {
                     <Card className="shadow-lg">
                         <CardHeader>
                             <CardTitle className="font-headline text-2xl">Consultar Disponibilidad</CardTitle>
-                            <CardDescription>Selecciona el rango de fechas deseado para ver los alojamientos disponibles.</CardDescription>
+                            <CardDescription>Selecciona tus fechas de llegada y salida.</CardDescription>
                         </CardHeader>
-                        <CardContent className="flex justify-center">
-                            <Calendar
-                                mode="range"
-                                selected={date}
-                                onSelect={setDate}
-                                className="rounded-md border"
-                                numberOfMonths={1}
-                            />
+                        <CardContent className="grid gap-6 md:grid-cols-2 justify-center">
+                            <div className="space-y-2 flex flex-col items-center">
+                                <Label className="font-semibold">Llegada</Label>
+                                <Calendar
+                                    mode="single"
+                                    selected={checkinDate}
+                                    onSelect={setCheckinDate}
+                                    className="rounded-md border"
+                                    disabled={{ before: new Date() }}
+                                />
+                            </div>
+                            <div className="space-y-2 flex flex-col items-center">
+                                <Label className="font-semibold">Salida</Label>
+                                <Calendar
+                                    mode="single"
+                                    selected={checkoutDate}
+                                    onSelect={setCheckoutDate}
+                                    className="rounded-md border"
+                                    disabled={{ before: checkinDate || new Date() }}
+                                />
+                            </div>
                         </CardContent>
                     </Card>
 
@@ -85,6 +99,8 @@ export default function Contact() {
                         </CardHeader>
                         <CardContent>
                             <form ref={formRef} action={formAction} className="space-y-4">
+                                <input type="hidden" name="checkin" value={checkinDate?.toISOString()} />
+                                <input type="hidden" name="checkout" value={checkoutDate?.toISOString()} />
                                 <div className="space-y-2">
                                     <Label htmlFor="name">Nombre</Label>
                                     <Input id="name" name="name" placeholder="Tu Nombre" required />
@@ -92,6 +108,10 @@ export default function Contact() {
                                 <div className="space-y-2">
                                     <Label htmlFor="email">Correo Electrónico</Label>
                                     <Input id="email" name="email" type="email" placeholder="tu@email.com" required />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="phone">Teléfono</Label>
+                                    <Input id="phone" name="phone" type="tel" placeholder="Tu número de teléfono" required />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="message">Mensaje</Label>

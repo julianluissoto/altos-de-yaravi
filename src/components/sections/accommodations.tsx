@@ -1,7 +1,8 @@
 import { accommodationsData, Accommodation } from '@/lib/data';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { CreditCard, Users, Bed, Wifi, Wind, Droplets, Leaf, Mountain } from 'lucide-react';
+import { CreditCard, Users, Bed, Wifi, Wind, Droplets, Leaf, Mountain, Car, Flame } from 'lucide-react';
+import Link from 'next/link';
 
 const featureIcons: { [key: string]: React.ReactNode } = {
   default: <Leaf className="h-4 w-4 text-secondary" />,
@@ -17,6 +18,9 @@ const featureIcons: { [key: string]: React.ReactNode } = {
   "vista a la montaña": <Mountain className="h-4 w-4 text-accent" />,
   "piscina privada": <Droplets className="h-4 w-4" />,
   "cocina completa": <Leaf className="h-4 w-4 text-secondary" />,
+  "cochera": <Car className="h-4 w-4" />,
+  "asador": <Flame className="h-4 w-4" />,
+  "wifi": <Wifi className="h-4 w-4" />,
 };
 
 
@@ -26,7 +30,7 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
 
   return (
     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${reverseLayout ? 'lg:grid-flow-col-dense' : ''}`}>
-      <div className={`grid grid-cols-2 grid-rows-2 gap-4 ${reverseLayout ? 'lg:col-start-2' : ''}`}>
+      <div className={`grid grid-cols-2 grid-rows-2 gap-2 ${reverseLayout ? 'lg:col-start-2' : ''}`}>
         <div className="col-span-2 row-span-2 relative min-h-[300px] lg:min-h-[450px] overflow-hidden rounded-lg shadow-lg">
           <Image
             src={mainImage.imageUrl}
@@ -69,13 +73,19 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
             <div className="flex flex-wrap gap-3">
                 {accommodation.features.map(feature => (
                     <div key={feature} className="flex items-center gap-2 rounded-full border bg-muted px-4 py-2 text-sm">
-                        {featureIcons[feature] || featureIcons.default}
+                        {featureIcons[feature.toLowerCase()] || featureIcons.default}
                         <span className="capitalize font-medium">{feature}</span>
                     </div>
                 ))}
             </div>
         </div>
-        <Button size="lg" className="w-full md:w-auto">Reservar Ahora</Button>
+        <div className="pt-4">
+          <Link href="#contact" passHref>
+            <Button size="lg" className="w-full md:w-auto">
+              Reservar Ahora
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 
 import { placeholderImages } from './placeholder-images';
 
-const getImage = (id: string) => {
+const getImage = (id: string): any => {
   const image = placeholderImages.find(img => img.id === id);
   if (!image) {
     // Fallback or error
@@ -24,7 +24,7 @@ export const accommodationsData = [
     description: "Escápate a las sierras y alojate en un lugar ideal para descanzar, seguro y cerca de todo. Perfecto para salir en familia",
     price: 50000,
     guests: 4,
-    features: ["ventilador", "cama 2 plazas", "vista a las sierras"],
+    features: ["cochera", "asador", "wifi", "ventilador", "cama 2 plazas", "vista a las sierras"],
     image: getImage('cabin-1'),
     interiorImages: [
       getImage('cabin-interior-1'),
@@ -48,14 +48,14 @@ export const placesToVisitData = [
   {
     id: 2,
     name: 'Segunda usina',
-    description: 'Atrévete a conquistar el pico más alto de Córdoba, una aventura para los amantes del senderismo.',
-    image: getImage('place-3'),
+    description: 'Este espejo de agua, rodeado de un paisaje serrano único, es un destino imperdible para los amantes de la naturaleza, los deportes acuáticos y la tranquilidad.',
+    image: getImage('place-2'),
   },
   {
     id: 3,
     name: 'El Mirador',
-    description: 'Un pueblo peatonal de estilo alpino, perfecto para pasear, disfrutar de la gastronomía y la naturaleza.',
-    image: getImage('place-2'),
+    description: 'Ofrece una panorámica espectacular del lago y los cerros circundantes. Desde allí, los visitantes pueden contemplar los reflejos del atardecer sobre el agua, respirar aire puro y sumergirse en la tranquilidad del paisaje serrano',
+    image: getImage('place-3'),
   },
 ];
 
@@ -101,7 +101,6 @@ export const galleryImagesData = [
     getImage('gallery-new-8'),
     getImage('gallery-new-9'),
 ];
-
 
 export type Accommodation = typeof accommodationsData[0];
 export type PlaceToVisit = typeof placesToVisitData[0];

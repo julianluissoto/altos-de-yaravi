@@ -19,7 +19,7 @@ export default function Hero() {
         <h1 className="font-headline text-5xl drop-shadow-lg md:text-7xl lg:text-8xl">
           Altos de Yaraví
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-white/90 drop-shadow-md md:text-xl">
+        <p className="mt-4 max-w-2xl text-2lg text-white/90 drop-shadow-md md:text-xl">
         Descubrí Embalse de Calamuchita
         Naturaleza, tranquilidad y aventura en el corazón de Córdoba.
         </p>
