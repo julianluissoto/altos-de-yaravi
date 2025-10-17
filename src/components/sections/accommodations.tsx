@@ -64,7 +64,7 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
             </div>
             <div className="flex items-center gap-2">
                 <CreditCard className="h-5 w-5 text-primary" />
-                <span className="font-semibold text-foreground text-base">${accommodation.price}/noche</span>
+                <span className="font-semibold text-foreground text-base">Consulte tarifa</span>
             </div>
         </div>
 
