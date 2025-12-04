@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 const initialState: FormState = {
     message: '',
 };
+const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_API_NUMBER ?? "";
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -132,7 +133,7 @@ export default function Contact() {
                                 <div className="flex flex-col gap-4 sm:flex-row">
                                     <SubmitButton />
                                     <Button asChild variant="outline" className="flex-1 border-secondary hover:bg-secondary/20">
-                                        <a href={`https://wa.me/${process.env.WHATSAPP_API_NUMBER}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                                        <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                                             <WhatsappIcon className="h-5 w-5" />
                                             Escribinos
                                         </a>

@@ -45,6 +45,7 @@ export async function sendEmail(
     // Limpiar el número de teléfono para el enlace de WhatsApp
     const whatsappNumber = phone.replace(/[^0-9]/g, '');
     const whatsappLink = `https://wa.me/${whatsappNumber}`;
+    console.log("ENV EMAIL:", process.env.EMAIL);
 
     await resend.emails.send({
       from: 'altosdeyaravi@resend.dev',
