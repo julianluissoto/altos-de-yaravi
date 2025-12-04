@@ -41,14 +41,14 @@ export async function sendEmail(
 
     const formattedCheckin = checkin ? format(new Date(checkin), "dd/MM/yyyy") : "No especificada";
     const formattedCheckout = checkout ? format(new Date(checkout), "dd/MM/yyyy") : "No especificada";
-    
+
     // Limpiar el número de teléfono para el enlace de WhatsApp
     const whatsappNumber = phone.replace(/[^0-9]/g, '');
     const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
     await resend.emails.send({
       from: 'altosdeyaravi@resend.dev',
-      to: 'julianlasoto@gmail.com',
+      to: process.env.EMAIL!,
       subject: `Nueva consulta de ${name} desde tu web`,
       html: `
         <p>Has recibido una nueva consulta de reserva:</p>

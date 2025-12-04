@@ -117,22 +117,22 @@ export default function Contact() {
                                     <Label htmlFor="message">Mensaje</Label>
                                     <Textarea id="message" name="message" placeholder="Tus preguntas o detalles de la reserva..." required />
                                 </div>
-                                 {state.issues && (
+                                {state.issues && (
                                     <Alert variant="destructive">
-                                    <AlertTitle>Por favor, corrige los siguientes errores:</AlertTitle>
-                                    <AlertDescription>
-                                        <ul className="list-disc pl-5">
-                                        {state.issues.map((issue) => (
-                                            <li key={issue}>{issue}</li>
-                                        ))}
-                                        </ul>
-                                    </AlertDescription>
+                                        <AlertTitle>Por favor, corrige los siguientes errores:</AlertTitle>
+                                        <AlertDescription>
+                                            <ul className="list-disc pl-5">
+                                                {state.issues.map((issue) => (
+                                                    <li key={issue}>{issue}</li>
+                                                ))}
+                                            </ul>
+                                        </AlertDescription>
                                     </Alert>
                                 )}
                                 <div className="flex flex-col gap-4 sm:flex-row">
                                     <SubmitButton />
                                     <Button asChild variant="outline" className="flex-1 border-secondary hover:bg-secondary/20">
-                                        <a href="https://wa.me/+5493571680795" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                                        <a href={`https://wa.me/${process.env.WHATSAPP_API_NUMBER}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                                             <WhatsappIcon className="h-5 w-5" />
                                             Escribinos
                                         </a>
