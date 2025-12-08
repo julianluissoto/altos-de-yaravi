@@ -134,7 +134,8 @@ export default function Contact() {
                                     <SubmitButton />
                                     <Button asChild variant="outline" className="flex-1 border-secondary hover:bg-secondary/20">
                                         <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                                            <WhatsappIcon className="h-5 w-5" />
+                                            <WhatsappIcon className="h-5 w-5 text-[#25D366]" />
+
                                             Escribinos
                                         </a>
                                     </Button>
