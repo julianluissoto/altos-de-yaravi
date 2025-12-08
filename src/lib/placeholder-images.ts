@@ -41,7 +41,28 @@ const placeholderImages = [
       "https://res.cloudinary.com/julian-soto/image/upload/v1760470670/altos%20de%20yaravi/IMG-20220121-WA0058_ue24f9.jpg",
     imageHint: "cochera",
   },
-   {
+  {
+    id: "cabin-1-interior-1",
+    description: "Comedor",
+    imageUrl:
+      "https://res.cloudinary.com/julian-soto/image/upload/v1760469105/altos%20de%20yaravi/20220123_203704_hibeii.jpg",
+    imageHint: "comedor",
+  },
+  {
+    id: "cabin-1-interior-2",
+    description: "habitacion 2",
+    imageUrl:
+      "https://res.cloudinary.com/julian-soto/image/upload/v1760469109/altos%20de%20yaravi/20220115_210523_bb6xsg.jpg",
+    imageHint: "habitacion 2",
+  },
+  {
+    id: "cabin-1-interior-3",
+    description: "habitacion 1",
+    imageUrl:
+      "https://res.cloudinary.com/julian-soto/image/upload/v1765226251/altos%20de%20yaravi/habitacion_doble_ny9fsx.jpg",
+    imageHint: "habitacion 1",
+  },
+  {
     id: "place-3",
     description: "Seguna Usina.",
     imageUrl:
@@ -58,7 +79,7 @@ const placeholderImages = [
 ];
 
 const galleryImages = [
-,
+  ,
   {
     id: "place-1",
     description: "Vista del Dique de Embalse.",
@@ -66,7 +87,7 @@ const galleryImages = [
       "https://www.destinocordoba.com.ar/wp-content/uploads/2022/02/FMH6DpWXMAYT6gn.jpg",
     imageHint: "dique lago",
   },
-   
+
   {
     id: "gallery-new-2",
     description: "Amanecer en Embalse",
@@ -75,17 +96,17 @@ const galleryImages = [
     imageHint: "amanecer embalse",
   },
 
- 
 
 
-  
+
+
   {
     id: "gallery-new-4",
     description: "Unidad Turística Embalse",
     imageUrl: "https://www.argentina.gob.ar/sites/default/files/utembalsecnm.jpg",
     imageHint: "unidad turistica",
   },
-    {
+  {
     id: "gallery-new-6",
     description: "La Hermita",
     imageUrl:
@@ -107,4 +128,4 @@ const galleryImages = [
   }
 
 ]
-export  {placeholderImages, galleryImages};
+export { placeholderImages, galleryImages };

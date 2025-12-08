@@ -18,13 +18,13 @@ const getImage = (id: string): any => {
 export const accommodationsData = [
   {
     id: 1,
-    name: "Departamento Moderno",
+    name: "Departamento 1",
     type: "cabaña",
     location: "sierras de cordoba",
-    description: "Escápate a las sierras y alojate en un lugar ideal para descanzar, seguro y cerca de todo. Perfecto para salir en familia",
+    description: "Còmodas instalaciones ,un lugar ideal para descanzar, seguro y cerca de todo. Perfecto para salir en familia",
     price: 50000,
     guests: 4,
-    features: ["cochera", "asador", "wifi", "ventilador", "cama 2 plazas", "vista a las sierras"],
+    features: ["cochera", "asador", "wifi", "ventilador", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina equipada"],
     image: getImage('cabin-1'),
     interiorImages: [
       getImage('cabin-interior-1'),
@@ -33,7 +33,25 @@ export const accommodationsData = [
       getImage('cabin-interior-4'),
     ]
   }
-  
+  ,
+
+  {
+    id: 2,
+    name: "Departamento 2",
+    type: "cabaña",
+    location: "sierras de cordoba",
+    description: "Disfruta de la tranquilidad de las sierras con todas las comodidades que necesitas para una estancia inolvidable.",
+    price: 50000,
+    guests: 5,
+    features: ["cochera", "asador", "wifi", "ventiladore", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina equipada"],
+    image: getImage('cabin-1'),
+    interiorImages: [
+      getImage('cabin-1-interior-1'),
+      getImage('cabin-1-interior-2'),
+      getImage('cabin-interior-4'),
+      getImage('cabin-1-interior-3'),
+    ]
+  }
 ];
 
 export const heroImage = getImage('hero');
@@ -60,46 +78,46 @@ export const placesToVisitData = [
 ];
 
 export const reviewsData = [
-    {
-      id: 1,
-      name: "Mariela",
-      rating: 5,
-      review: "El lugar increíble, un sueño, ideal para descansar y conectar con la naturaleza. La cabaña súper cómoda, todo impecable, funciona todo perfecto. La atención excelente.",
-      avatar: "/avatars/01.png"
-    },
-    {
-      id: 2,
-      name: "Gaston",
-      rating: 5,
-      review: "Hermoso lugar. Muy tranquilo y con instalaciones excelentes. El dueño siempre atento y predispuesto a ayudar. Sin dudas volveremos.",
-      avatar: "/avatars/02.png"
-    },
-    {
-      id: 3,
-      name: "Juan Cruz",
-      rating: 5,
-      review: "Un lugar increíble para desconectar, es un refugio de paz. Las cabañas son muy cómodas y completas. El entorno natural es soñado.",
-      avatar: "/avatars/03.png"
-    },
-     {
-      id: 4,
-      name: "Sofia",
-      rating: 5,
-      review: "Pasamos un fin de semana espectacular. La atención de Julián es inmejorable, siempre atento a todo. El lugar es un paraíso. ¡Volveremos pronto!",
-      avatar: "/avatars/04.png"
-    }
+  {
+    id: 1,
+    name: "Mariela",
+    rating: 5,
+    review: "El lugar increíble, un sueño, ideal para descansar y conectar con la naturaleza. La cabaña súper cómoda, todo impecable, funciona todo perfecto. La atención excelente.",
+    avatar: "/avatars/01.png"
+  },
+  {
+    id: 2,
+    name: "Gaston",
+    rating: 5,
+    review: "Hermoso lugar. Muy tranquilo y con instalaciones excelentes. El dueño siempre atento y predispuesto a ayudar. Sin dudas volveremos.",
+    avatar: "/avatars/02.png"
+  },
+  {
+    id: 3,
+    name: "Juan Cruz",
+    rating: 5,
+    review: "Un lugar increíble para desconectar, es un refugio de paz. Las cabañas son muy cómodas y completas. El entorno natural es soñado.",
+    avatar: "/avatars/03.png"
+  },
+  {
+    id: 4,
+    name: "Sofia",
+    rating: 5,
+    review: "Pasamos un fin de semana espectacular. La atención de Julián es inmejorable, siempre atento a todo. El lugar es un paraíso. ¡Volveremos pronto!",
+    avatar: "/avatars/04.png"
+  }
 ];
 
 export const galleryImagesData = [
-    getImage('gallery-new-1'),
-    getImage('gallery-new-2'),
-    getImage('gallery-new-3'),
-    getImage('gallery-new-4'),
-    getImage('gallery-new-5'),
-    getImage('gallery-new-6'),
-    getImage('gallery-new-7'),
-    getImage('gallery-new-8'),
-    getImage('gallery-new-9'),
+  getImage('gallery-new-1'),
+  getImage('gallery-new-2'),
+  getImage('gallery-new-3'),
+  getImage('gallery-new-4'),
+  getImage('gallery-new-5'),
+  getImage('gallery-new-6'),
+  getImage('gallery-new-7'),
+  getImage('gallery-new-8'),
+  getImage('gallery-new-9'),
 ];
 
 export type Accommodation = typeof accommodationsData[0];

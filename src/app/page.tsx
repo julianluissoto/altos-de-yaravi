@@ -8,6 +8,7 @@ import PlacesToVisit from '@/components/sections/places-to-visit';
 import LocationMap from '@/components/sections/location-map';
 import Reviews from '@/components/sections/reviews';
 import { AnimatedSection } from '@/components/shared/animated-section';
+import { ScrollToTopButton } from '@/components/shared/ScrollToTopButton';
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-         <AnimatedSection>
+        <AnimatedSection>
           <Accommodations />
         </AnimatedSection>
         <AnimatedSection>
@@ -35,6 +36,7 @@ export default function Home() {
         </AnimatedSection>
       </main>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }

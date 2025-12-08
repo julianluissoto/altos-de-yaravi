@@ -21,8 +21,8 @@ export default function Hero() {
           Altos de Yaraví
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-white drop-shadow-md md:text-xl">
-        Descubrí Embalse de Calamuchita
-        Naturaleza, tranquilidad y aventura en el corazón de Córdoba.
+          Descubrí Embalse de Calamuchita.
+          Naturaleza, tranquilidad y aventura en el corazón de Córdoba.
         </p>
         <Link className='mt-4' href="#contact" passHref>
           <Button size="lg" className="w-full md:w-auto">
