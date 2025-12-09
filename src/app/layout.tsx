@@ -3,8 +3,13 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.altosdeyaravi.com.ar'),
   title: 'Altos de Yaraví | Cabañas en Embalse, Calamuchita',
-  description: 'Descubre nuestras cabañas en Embalse de Calamuchita, Córdoba. Un lugar ideal para el descanso, la naturaleza y la aventura. ¡Reserva tu estancia!',
+  description:
+    'Descubre nuestras cabañas en Embalse de Calamuchita, Córdoba. Un lugar ideal para el descanso, la naturaleza y la aventura. ¡Reserva tu estancia!',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({
@@ -40,7 +45,7 @@ export default function RootLayout({
               "priceRange": "$$",
               "image": "https://res.cloudinary.com/julian-soto/image/upload/v1760468586/altos%20de%20yaravi/20251003_131956_cpxqtp.jpg",
               "description": "Departamentos en Embalse de Calamuchita, Córdoba. Ideal para el descanso, la naturaleza y la aventura.",
-              "url": "https://altosdeyaravi.com.ar" // Reemplazar con tu URL final
+              "url": "https://www.altosdeyaravi.com.ar"
             })
           }}
         />
