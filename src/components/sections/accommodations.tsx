@@ -73,7 +73,7 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
         </div>
 
         <div>
-          <h4 className='font-semibold mb-3'>Comodidades destacadas:</h4>
+          <h4 className='font-semibold mb-3'>Comodidades:</h4>
           <div className="flex flex-wrap gap-3">
             {accommodation?.features.map(feature => (
               <div key={feature} className="flex items-center gap-2 rounded-full border bg-muted px-4 py-2 text-sm">
@@ -86,7 +86,7 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
         <div className="pt-4">
           <Link href="#contact" passHref>
             <Button size="lg" className="w-full md:w-auto">
-              Reservar Ahora
+              Consultar Disponibilidad
             </Button>
           </Link>
         </div>
