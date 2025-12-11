@@ -62,7 +62,7 @@ export default function TouristCircuits() {
         <div className="mb-16 text-center">
           <h2 className="font-headline text-4xl font-bold md:text-5xl">Circuitos Turísticos</h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg md:text-xl">
-            Explora los alrededores y descubre la magia de Calamuchita con estas rutas recomendadas desde nuestros refugios.
+            Explora los alrededores y descubre la magia de Calamuchita con estas rutas recomendadas partiendo desde embalse.
           </p>
         </div>
         <div className="space-y-12 flex flex-col items-center">
