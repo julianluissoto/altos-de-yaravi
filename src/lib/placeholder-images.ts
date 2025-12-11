@@ -1,3 +1,13 @@
+import { Description } from "@radix-ui/react-toast";
+
+export type ImagePlaceholder = {
+  id: string;
+  title?: string;
+  description?: string;
+  imageUrl: string;
+  imageHint: string;
+};
+
 const placeholderImages = [
   {
     id: "hero",
@@ -79,49 +89,45 @@ const placeholderImages = [
 ];
 
 const galleryImages = [
-  ,
+
   {
-    id: "place-1",
-    description: "Vista del Dique de Embalse.",
+    id: "gallery-1",
+    title: "Vista del Dique de Embalse.",
+    Description: "Vista del Dique de Embalse.",
     imageUrl:
       "https://www.destinocordoba.com.ar/wp-content/uploads/2022/02/FMH6DpWXMAYT6gn.jpg",
     imageHint: "dique lago",
   },
 
   {
-    id: "gallery-new-2",
-    description: "Amanecer en Embalse",
+    id: "gallery-2",
+    title: "Amanecer en Embalse",
     imageUrl:
       "https://el-portal-de-calamuchita.valle-de-calamuchita-hoteles.com/data/Images/OriginalPhoto/13295/1329580/1329580331/image-embalse-amanecer-en-calamuchita-3.JPEG",
     imageHint: "amanecer embalse",
   },
-
-
-
-
-
   {
-    id: "gallery-new-4",
-    description: "Unidad Turística Embalse",
+    id: "gallery-3",
+    title: "Unidad Turística Embalse",
     imageUrl: "https://www.argentina.gob.ar/sites/default/files/utembalsecnm.jpg",
     imageHint: "unidad turistica",
   },
   {
-    id: "gallery-new-6",
-    description: "La Hermita",
+    id: "gallery-4",
+    title: "La Hermita",
     imageUrl:
       "https://www.lavoz.com.ar/resizer/v2/CSMT2Z57W5ESNCGS657MUFL36E.jpg?auth=c082d537c32d642583a6946984f5dfd572baae70b08da71a3862eec397a98c89&quality=75&smart=true&width=385",
     imageHint: "hermita",
   },
   {
-    id: "gallery-new-7",
-    description: "Dique de Embalse",
+    id: "gallery-5",
+    title: "Dique de Embalse",
     imageUrl: "https://rallypais.com/wp-content/uploads/2024/08/Baldoni-prueba.jpeg",
     imageHint: "dique embalse",
   },
   {
-    id: "gallery-new-8",
-    description: "Central Nuclear Embalse",
+    id: "gallery-6",
+    title: "Central Nuclear Embalse",
     imageUrl:
       "https://www.rionegro.com.ar/wp-content/uploads/2022/12/Central-Nuclear-Embalse-Aerea-1.jpg?w=1200&h=630&crop=1",
     imageHint: "central nuclear",

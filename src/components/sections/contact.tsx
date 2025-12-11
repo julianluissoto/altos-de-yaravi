@@ -13,13 +13,12 @@ import { useFormStatus } from "react-dom";
 import { sendEmail, FormState } from "@/app/actions/send-email";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar as CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 
 const initialState: FormState = {
     message: '',
 };
-const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_API_NUMBER ?? "";
+const whatsapp = process.env.WHATSAPP_API_NUMBER;
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -102,6 +101,11 @@ export default function Contact() {
                             <form ref={formRef} action={formAction} className="space-y-4">
                                 <input type="hidden" name="checkin" value={checkinDate?.toISOString()} />
                                 <input type="hidden" name="checkout" value={checkoutDate?.toISOString()} />
+                                {/* Honeypot Field */}
+                                <div className="sr-only" aria-hidden="true">
+                                    <Label htmlFor="website">Website</Label>
+                                    <Input id="website" name="website" tabIndex={-1} autoComplete="off" />
+                                </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="name">Nombre</Label>
                                     <Input id="name" name="name" placeholder="Tu Nombre" required />
@@ -134,8 +138,7 @@ export default function Contact() {
                                     <SubmitButton />
                                     <Button asChild variant="outline" className="flex-1 border-secondary hover:bg-secondary/20">
                                         <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                                            <WhatsappIcon className="h-5 w-5 text-[#25D366]" />
-
+                                            <WhatsappIcon className="h-5 w-5" />
                                             Escribinos
                                         </a>
                                     </Button>

@@ -109,15 +109,12 @@ export const reviewsData = [
 ];
 
 export const galleryImagesData = [
-  getImage('gallery-new-1'),
   getImage('gallery-new-2'),
-  getImage('gallery-new-3'),
   getImage('gallery-new-4'),
-  getImage('gallery-new-5'),
   getImage('gallery-new-6'),
   getImage('gallery-new-7'),
   getImage('gallery-new-8'),
-  getImage('gallery-new-9'),
+
 ];
 
 export type Accommodation = typeof accommodationsData[0];

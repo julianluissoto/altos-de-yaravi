@@ -17,6 +17,7 @@ const sendEmailSchema = z.object({
   message: z.string().min(10, { message: 'El mensaje debe tener al menos 10 caracteres.' }),
   checkin: z.string().optional(),
   checkout: z.string().optional(),
+  website: z.string().optional(), // Honeypot field
 });
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -36,6 +37,14 @@ export async function sendEmail(
     };
   }
 
+  // Honeypot check
+  if (parsed.data.website) {
+    // This is likely a bot. Pretend it was successful but don't send the email.
+    return {
+      message: '¡Mensaje Enviado! Gracias por contactarnos.',
+    };
+  }
+
   try {
     const { name, email, phone, message, checkin, checkout } = parsed.data;
 
@@ -43,9 +52,8 @@ export async function sendEmail(
     const formattedCheckout = checkout ? format(new Date(checkout), "dd/MM/yyyy") : "No especificada";
 
     // Limpiar el número de teléfono para el enlace de WhatsApp
-    const whatsappNumber = phone.replace(/[^0-9]/g, '');
-    const whatsappLink = `https://wa.me/${whatsappNumber}`;
-    console.log("ENV EMAIL:", process.env.EMAIL);
+
+    const whatsappLink = `https://wa.me/${process.env.WHATSAPP_API_NUMBER}?text=${encodeURIComponent(`Hola, soy ${name}. Me gustaría hacer una consulta sobre reservas.`)}`;
 
     await resend.emails.send({
       from: 'altosdeyaravi@resend.dev',
