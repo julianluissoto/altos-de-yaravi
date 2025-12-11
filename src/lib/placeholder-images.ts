@@ -85,6 +85,25 @@ const placeholderImages = [
     imageUrl:
       "https://media-cdn.tripadvisor.com/media/photo-s/08/16/92/ee/mirador-ute.jpg",
     imageHint: "mirador vista",
+
+  },
+  {
+    id: 'circuit-quillinzo',
+    description: 'Río en Villa Quillinzo',
+    imageUrl: 'https://res.cloudinary.com/julian-soto/image/upload/v1765483176/altos%20de%20yaravi/cicuitos/panoramica-rio-quillinzo_jxmb1y.jpg',
+    imageHint: 'rio playa'
+  },
+  {
+    id: 'circuit-durazno',
+    description: 'Río en El Durazno, Calamuchita',
+    imageUrl: 'https://res.cloudinary.com/julian-soto/image/upload/v1765483256/altos%20de%20yaravi/cicuitos/paraje-el-durazno_nw9hzf.jpg',
+    imageHint: 'rio piedras'
+  },
+  {
+    id: 'circuit-cumbrecita',
+    description: 'Pueblo de La Cumbrecita',
+    imageUrl: 'https://res.cloudinary.com/julian-soto/image/upload/v1765483346/altos%20de%20yaravi/cicuitos/la-cumbrecita-2-1024x720_kgik2a.jpg',
+    imageHint: 'pueblo alpino'
   },
 ];
 

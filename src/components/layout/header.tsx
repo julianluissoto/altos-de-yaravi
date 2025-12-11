@@ -14,6 +14,7 @@ const navLinks = [
   { href: '#places-to-visit', label: 'Lugares a Visitar' },
   { href: '#location', label: 'Ubicación' },
   { href: '#contact', label: 'Contacto y Reservas' },
+  { href: '#tourist-circuits', label: 'Circuitos Turísticos' },
 ];
 
 export default function Header() {

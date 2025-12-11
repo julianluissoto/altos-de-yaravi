@@ -18,7 +18,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 const initialState: FormState = {
     message: '',
 };
-const whatsapp = process.env.WHATSAPP_API_NUMBER;
+const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_API_NUMBER;
 
 function SubmitButton() {
     const { pending } = useFormStatus();

@@ -1,5 +1,4 @@
-
-import { placeholderImages } from './placeholder-images';
+import { placeholderImages, type ImagePlaceholder } from './placeholder-images';
 
 const getImage = (id: string): any => {
   const image = placeholderImages.find(img => img.id === id);
@@ -117,6 +116,35 @@ export const galleryImagesData = [
 
 ];
 
+
+export const touristCircuitsData = [
+  {
+    id: 1,
+    name: 'Circuito a Villa Quillinzo',
+    description: 'Un tranquilo pueblo a orillas del río Quillinzo, ideal para disfrutar de sus playas de arena, aguas cristalinas y la serenidad del entorno. Perfecto para un día de relax y naturaleza.',
+    travelTime: 'Aprox. 25 min',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d26987.21855212521!2d-64.44498332910795!3d-32.18919696958617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x95d27c62c35a1f67%3A0xc3f34533f5240217!2sEl%20Yarav%C3%AD%2072%2C%20Embalse%2C%20C%C3%B3rdoba!3m2!1d-32.1997222!2d-64.3993611!4m5!1s0x95d263b655555555%3A0xe55648839059f139!2sVilla%20Quillinzo%2C%20C%C3%B3rdoba!3m2!1d-32.179346!2d-64.488331!5e0!3m2!1ses-419!2sar!4v1721833503613!5m2!1ses-419!2sar',
+    image: getImage('circuit-quillinzo'),
+  },
+  {
+    id: 2,
+    name: 'Circuito a El Durazno',
+    description: 'Descubre este pequeño paraíso escondido con un río de aguas transparentes y ollas naturales. Es un destino ideal para el senderismo, el trekking y conectar con la naturaleza virgen.',
+    travelTime: 'Aprox. 1 hr 15 min',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d54020.21927702894!2d-64.71718012911977!3d-31.94589993356064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x95d27c62c35a1f67%3A0xc3f34533f5240217!2sEl%20Yarav%C3%AD%2072%2C%20Embalse%2C%20C%C3%B3rdoba!3m2!1d-32.1997222!2d-64.3993611!4m5!1s0x95d2912445695029%3A0x6331a1ef4553535d!2sEl%20Durazno%2C%20C%C3%B3rdoba!3m2!1d-32.1524388!2d-64.7925694!5e0!3m2!1ses-419!2sar!4v1721833588203!5m2!1ses-419!2sar',
+    image: getImage('circuit-durazno'),
+  },
+  {
+    id: 3,
+    name: 'Circuito a La Cumbrecita',
+    description: 'Visita el único pueblo peatonal de Argentina. Un rincón de estilo alpino en las sierras, con cascadas, bosques de coníferas y una gastronomía centroeuropea que te encantará.',
+    travelTime: 'Aprox. 1 hr 30 min',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d108226.79092497645!2d-64.67389659068695!3d-31.90562624773822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x95d27c62c35a1f67%3A0xc3f34533f5240217!2sEl%20Yarav%C3%AD%2072%2C%20Embalse%2C%20C%C3%B3rdoba!3m2!1d-32.1997222!2d-64.3993611!4m5!1s0x95d29d009b450767%3A0xc236359549557458!2sLa%20Cumbrecita%2C%2C%20C%C3%B3rdoba!3m2!1d-31.921389!2d-64.773333!5e0!3m2!1ses-419!2sar!4v1721833635293!5m2!1ses-419!2sar',
+    image: getImage('circuit-cumbrecita'),
+  }
+];
+
 export type Accommodation = typeof accommodationsData[0];
 export type PlaceToVisit = typeof placesToVisitData[0];
 export type Review = typeof reviewsData[0];
+export type TouristCircuit = typeof touristCircuitsData[0];
