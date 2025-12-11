@@ -23,7 +23,6 @@ export default function Home() {
         <AnimatedSection>
           <Gallery />
         </AnimatedSection>
-
         <AnimatedSection>
           <PlacesToVisit />
         </AnimatedSection>

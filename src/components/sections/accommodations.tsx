@@ -33,8 +33,20 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
   const interiorImages = accommodation?.interiorImages.slice(0, 4); // Ensure we only take 4 images
 
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${reverseLayout ? 'lg:grid-flow-col-dense' : ''}`}>
-      <div className={`grid grid-cols-2 grid-rows-2 gap-2 ${reverseLayout ? 'lg:col-start-2' : ''}`}>
+    <div
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${reverseLayout ? 'lg:grid-flow-col-dense' : ''
+        }`}
+    >
+      {/* TÍTULO SOLO MOBILE — ANTES DE LAS IMÁGENES */}
+      <h3 className="font-headline text-3xl font-bold lg:hidden">
+        {accommodation?.name}
+      </h3>
+
+      {/* ----------------- IMÁGENES ----------------- */}
+      <div
+        className={`grid grid-cols-2 grid-rows-2 gap-2 ${reverseLayout ? 'lg:col-start-2' : ''
+          }`}
+      >
         <div className="col-span-2 row-span-2 relative min-h-[300px] lg:min-h-[450px] overflow-hidden rounded-lg shadow-lg">
           <Image
             src={mainImage.imageUrl}
@@ -44,8 +56,12 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
             className="object-cover transition-transform duration-300 hover:scale-105"
           />
         </div>
+
         {interiorImages?.map((image, index) => (
-          <div key={index} className="relative h-32 w-full overflow-hidden rounded-lg shadow-md lg:h-40">
+          <div
+            key={index}
+            className="relative h-32 w-full overflow-hidden rounded-lg shadow-md lg:h-40"
+          >
             <Image
               src={image.imageUrl}
               alt={image.description}
@@ -57,32 +73,48 @@ function AccommodationDisplay({ accommodation, reverseLayout = false }: { accomm
         ))}
       </div>
 
-      <div className={`space-y-6 ${reverseLayout ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-        <h3 className="font-headline text-3xl font-bold">{accommodation?.name}</h3>
+      {/* ----------------- TEXTO / DESCRIPCIÓN ----------------- */}
+      <div
+        className={`space-y-6 ${reverseLayout ? 'lg:col-start-1 lg:row-start-1' : ''
+          }`}
+      >
+        {/* TÍTULO SOLO DESKTOP */}
+        <h3 className="font-headline text-3xl font-bold hidden lg:block">
+          {accommodation?.name}
+        </h3>
+
         <p className="text-muted-foreground">{accommodation?.description}</p>
 
         <div className="flex items-center justify-between text-sm text-muted-foreground border-t border-b py-4">
           <div className="flex items-center gap-2">
             <Users className="h-5 w-5 text-primary" />
-            <span className='text-base'>Hasta {accommodation?.guests} huéspedes</span>
+            <span className="text-base">
+              Hasta {accommodation?.guests} huéspedes
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <CreditCard className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-foreground text-base">${accommodation?.price}/noche</span>
+            <span className="font-semibold text-foreground text-base">
+              ${accommodation?.price}/noche
+            </span>
           </div>
         </div>
 
         <div>
-          <h4 className='font-semibold mb-3'>Comodidades:</h4>
+          <h4 className="font-semibold mb-3">Comodidades:</h4>
           <div className="flex flex-wrap gap-3">
-            {accommodation?.features.map(feature => (
-              <div key={feature} className="flex items-center gap-2 rounded-full border bg-muted px-4 py-2 text-sm">
+            {accommodation?.features.map((feature) => (
+              <div
+                key={feature}
+                className="flex items-center gap-2 rounded-full border bg-muted px-4 py-2 text-sm"
+              >
                 {featureIcons[feature.toLowerCase()] || featureIcons.default}
                 <span className="capitalize font-medium">{feature}</span>
               </div>
             ))}
           </div>
         </div>
+
         <div className="pt-4">
           <Link href="#contact" passHref>
             <Button size="lg" className="w-full md:w-auto">
