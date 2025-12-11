@@ -23,9 +23,7 @@ export default function Home() {
         <AnimatedSection>
           <Gallery />
         </AnimatedSection>
-        <AnimatedSection>
-          <Reviews />
-        </AnimatedSection>
+
         <AnimatedSection>
           <PlacesToVisit />
         </AnimatedSection>
@@ -34,6 +32,9 @@ export default function Home() {
         </AnimatedSection>
         <AnimatedSection>
           <LocationMap />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Reviews />
         </AnimatedSection>
         <AnimatedSection>
           <Contact />
