@@ -123,7 +123,7 @@ export const touristCircuitsData = [
     name: 'Circuito a Villa Quillinzo',
     description: 'Un tranquilo pueblo a orillas del río Quillinzo, ideal para disfrutar de sus playas de arena, aguas cristalinas y la serenidad del entorno. Perfecto para un día de relax y naturaleza.',
     travelTime: 'Aprox. 25 min',
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d26987.21855212521!2d-64.44498332910795!3d-32.18919696958617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x95d27c62c35a1f67%3A0xc3f34533f5240217!2sEl%20Yarav%C3%AD%2072%2C%20Embalse%2C%20C%C3%B3rdoba!3m2!1d-32.1997222!2d-64.3993611!4m5!1s0x95d263b655555555%3A0xe55648839059f139!2sVilla%20Quillinzo%2C%20C%C3%B3rdoba!3m2!1d-32.179346!2d-64.488331!5e0!3m2!1ses-419!2sar!4v1721833503613!5m2!1ses-419!2sar',
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d53988.37412003752!2d-64.50484665472953!3d-32.25072592511621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x95d29f9580e920c9%3A0xdd937efb8122a0cc!2sAltos%20de%20yaravi%2C%20RJ22%2B47%2C%20X5856%20Embalse%2C%20C%C3%B3rdoba!3m2!1d-32.1997627!2d-64.39934889999999!4m5!1s0x95d291c49d459955%3A0xb12ac6435bf35d2b!2sPARADOR%20PUENTE%20QUILLINZO%2C%20C%C3%B3rdoba!3m2!1d-32.2767147!2d-64.527896!5e0!3m2!1ses-419!2sar!4v1765485891192!5m2!1ses-419!2sar",
     image: getImage('circuit-quillinzo'),
   },
   {
