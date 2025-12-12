@@ -10,7 +10,7 @@ import Reviews from '@/components/sections/reviews';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { ScrollToTopButton } from '@/components/shared/ScrollToTopButton';
 import WhereToEat from '@/components/sections/whereToEat';
-import TouristCircuits from '@/components/sections/touristicsCircuits';
+import TouristCircuits from '@/components/sections/TouristicsCircuits';
 
 
 
