@@ -1,4 +1,4 @@
-import { placeholderImages, type ImagePlaceholder } from './placeholder-images';
+import { dondeComerImages, placeholderImages, type ImagePlaceholder } from './placeholder-images';
 
 const getImage = (id: string): any => {
   const image = placeholderImages.find(img => img.id === id);
@@ -14,6 +14,19 @@ const getImage = (id: string): any => {
   return image;
 };
 
+const getImageRestaurant = (id: string): any => {
+  const image = dondeComerImages.find(img => img.id === id);
+  if (!image) {
+    // Fallback or error
+    return {
+      id: 'fallback',
+      description: 'Imagen de reemplazo',
+      imageUrl: 'https://www.destinocordoba.com.ar/wp-content/uploads/2023/03/330841326_766594117704915_2447324353930562228_n-1.jpeg',
+      imageHint: 'embalse'
+    };
+  }
+  return image;
+};
 export const accommodationsData = [
   {
     id: 1,
@@ -144,7 +157,35 @@ export const touristCircuitsData = [
   }
 ];
 
+export const whereToEatData = [
+  {
+    id: 1,
+    name: "Don Honorio",
+    description: "Parrilla y pastas caseras.",
+    logo: getImageRestaurant('comida-1'),
+  },
+  {
+    id: 2,
+    name: "Parrilla las Brasas",
+    description: "Las mejores carnes a la parrilla, chivito y especialidad en ranas y pejerrey.",
+    logo: getImageRestaurant('comida-2'),
+  },
+  {
+    id: 3,
+    name: "Tom Blake",
+    description: "Bar-restaurant, picadas, hamburguesas y cervezas artesanales.",
+    logo: getImageRestaurant('comida-3'),
+  },
+  {
+    id: 4,
+    name: "Capri",
+    description: "Especialidad en milanesas, variedad de pizzas y guarniciones.",
+    logo: getImageRestaurant('comida-4'),
+  }
+];
+
 export type Accommodation = typeof accommodationsData[0];
 export type PlaceToVisit = typeof placesToVisitData[0];
 export type Review = typeof reviewsData[0];
 export type TouristCircuit = typeof touristCircuitsData[0];
+export type WhereToEatItem = typeof whereToEatData[0];

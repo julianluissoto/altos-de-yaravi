@@ -15,6 +15,7 @@ const navLinks = [
   { href: '#location', label: 'Ubicación' },
   { href: '#contact', label: 'Contacto y Reservas' },
   { href: '#tourist-circuits', label: 'Circuitos Turísticos' },
+  { href: '#where-to-eat', label: 'Dónde Comer' },
 ];
 
 export default function Header() {

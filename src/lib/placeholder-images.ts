@@ -85,7 +85,6 @@ const placeholderImages = [
     imageUrl:
       "https://media-cdn.tripadvisor.com/media/photo-s/08/16/92/ee/mirador-ute.jpg",
     imageHint: "mirador vista",
-
   },
   {
     id: 'circuit-quillinzo',
@@ -151,6 +150,32 @@ const galleryImages = [
       "https://www.rionegro.com.ar/wp-content/uploads/2022/12/Central-Nuclear-Embalse-Aerea-1.jpg?w=1200&h=630&crop=1",
     imageHint: "central nuclear",
   }
+]
+
+const dondeComerImages = [
+
+  {
+    id: "comida-1",
+    imageUrl: "https://embalse.gov.ar/wp-content/uploads/2024/10/donhonorio4.jpeg",
+    imageHint: "don honorio",
+  },
+  {
+    id: "comida-2",
+    imageUrl: "https://embalse.gov.ar/wp-content/uploads/2024/10/tomblake5.jpeg",
+    imageHint: "tom blake",
+  },
+  {
+    id: "comida-3",
+    imageUrl: "https://embalse.gov.ar/wp-content/uploads/2025/01/Las-Brasas-1.jpeg",
+    imageHint: "las brasas",
+  },
+  {
+    id: "comida-4",
+    imageUrl: "https://embalse.gov.ar/wp-content/uploads/2025/01/Capri-2.jpeg",
+    imageHint: "capri",
+  }
 
 ]
-export { placeholderImages, galleryImages };
+
+
+export { placeholderImages, galleryImages, dondeComerImages };

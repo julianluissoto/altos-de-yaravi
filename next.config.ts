@@ -124,6 +124,14 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'embalse.gov.ar',
+        port: '',
+        pathname: '/**',
+      },
+
+
     ],
   },
 };

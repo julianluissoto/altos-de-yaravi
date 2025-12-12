@@ -9,7 +9,11 @@ import LocationMap from '@/components/sections/location-map';
 import Reviews from '@/components/sections/reviews';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { ScrollToTopButton } from '@/components/shared/ScrollToTopButton';
-import TouristCircuits from '@/components/sections/TouristicsCircuits';
+import WhereToEat from '@/components/sections/whereToEat';
+import TouristCircuits from '@/components/sections/touristicsCircuits';
+
+
+
 
 export default function Home() {
   return (
@@ -28,6 +32,9 @@ export default function Home() {
         </AnimatedSection>
         <AnimatedSection>
           <TouristCircuits />
+        </AnimatedSection>
+        <AnimatedSection>
+          <WhereToEat />
         </AnimatedSection>
         <AnimatedSection>
           <LocationMap />
