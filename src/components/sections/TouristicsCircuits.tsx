@@ -1,6 +1,6 @@
 import { touristCircuitsData, TouristCircuit } from '@/lib/data';
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Clock, Route } from 'lucide-react';
 
 function CircuitCard({ circuit, reverseLayout = false }: { circuit: TouristCircuit, reverseLayout?: boolean }) {
