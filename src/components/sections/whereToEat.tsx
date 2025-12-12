@@ -3,6 +3,8 @@ import type { WhereToEatItem } from '@/lib/data';
 import { whereToEatData } from '@/lib/data';
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Phone } from "lucide-react";
+
 
 function RestaurantCard({ place }: { place: WhereToEatItem }) {
     return (
@@ -21,7 +23,13 @@ function RestaurantCard({ place }: { place: WhereToEatItem }) {
             </CardHeader>
             <CardContent className="p-2">
                 <p className="text-muted-foreground">{place.description}</p>
+
+                <div className="flex items-center justify-center gap-2 mt-2 text-slate-800">
+                    <Phone className="h-5 w-5 text-primary" />
+                    <span className="font-bold">{place.phone}</span>
+                </div>
             </CardContent>
+
         </Card>
     );
 }

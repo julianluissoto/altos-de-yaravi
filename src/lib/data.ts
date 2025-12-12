@@ -163,24 +163,28 @@ export const whereToEatData = [
     name: "Don Honorio",
     description: "Parrilla y pastas caseras.",
     logo: getImageRestaurant('comida-1'),
+    phone: "3571-485549"
   },
   {
     id: 2,
     name: "Parrilla las Brasas",
     description: "Las mejores carnes a la parrilla, chivito y especialidad en ranas y pejerrey.",
     logo: getImageRestaurant('comida-2'),
+    phone: "3571-4878888"
   },
   {
     id: 3,
     name: "Tom Blake",
     description: "Bar-restaurant, picadas, hamburguesas y cervezas artesanales.",
     logo: getImageRestaurant('comida-3'),
+    phone: "3571-310426"
   },
   {
     id: 4,
     name: "Capri",
     description: "Especialidad en milanesas, variedad de pizzas y guarniciones.",
     logo: getImageRestaurant('comida-4'),
+    phone: "3571-485774"
   }
 ];
 

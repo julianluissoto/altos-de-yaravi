@@ -1,4 +1,5 @@
 import { Description } from "@radix-ui/react-toast";
+import { Phone } from "lucide-react";
 
 export type ImagePlaceholder = {
   id: string;
@@ -158,21 +159,25 @@ const dondeComerImages = [
     id: "comida-1",
     imageUrl: "https://embalse.gov.ar/wp-content/uploads/2024/10/donhonorio4.jpeg",
     imageHint: "don honorio",
+
   },
   {
     id: "comida-2",
     imageUrl: "https://embalse.gov.ar/wp-content/uploads/2024/10/tomblake5.jpeg",
     imageHint: "tom blake",
+
   },
   {
     id: "comida-3",
     imageUrl: "https://embalse.gov.ar/wp-content/uploads/2025/01/Las-Brasas-1.jpeg",
     imageHint: "las brasas",
+
   },
   {
     id: "comida-4",
     imageUrl: "https://embalse.gov.ar/wp-content/uploads/2025/01/Capri-2.jpeg",
     imageHint: "capri",
+
   }
 
 ]
