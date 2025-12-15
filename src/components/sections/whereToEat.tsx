@@ -5,31 +5,75 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone } from "lucide-react";
 
+import { WhatsappIcon } from '../icons/whatsapp-icon';
 
 function RestaurantCard({ place }: { place: WhereToEatItem }) {
+    const whatsappNumber = place.phone.replace(/\D/g, "");
+
     return (
-        <Card className="flex flex-col items-center text-center overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl p-4">
-            <div className="relative h-24 w-48 mb-4">
+        <Card
+            className="
+        overflow-hidden rounded-2xl
+        shadow-md transition-all duration-300
+        hover:-translate-y-1 hover:shadow-xl
+        bg-white
+      "
+        >
+            {/* Imagen */}
+            <div className="relative w-full h-48 md:h-56">
                 <Image
                     src={place.logo.imageUrl}
                     alt={`Logo de ${place.name}`}
                     data-ai-hint={place.logo.imageHint}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                 />
             </div>
-            <CardHeader className="p-2">
-                <CardTitle className="font-headline text-2xl">{place.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="p-2">
-                <p className="text-muted-foreground">{place.description}</p>
 
-                <div className="flex items-center justify-center gap-2 mt-2 text-slate-800">
-                    <Phone className="h-5 w-5 text-primary" />
-                    <span className="font-bold">{place.phone}</span>
+            {/* Contenido */}
+            <div className="p-5 text-center space-y-4">
+                <h3 className="font-headline text-2xl font-semibold">
+                    {place.name}
+                </h3>
+
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                    {place.description}
+                </p>
+
+                {/* Teléfono + WhatsApp */}
+                <div className="flex gap-3 w-full">
+                    {/* Teléfono */}
+                    <a
+                        href={`tel:${place.phone}`}
+                        className="
+              flex-1 inline-flex items-center justify-center gap-2
+              rounded-xl border border-primary
+              text-primary py-2 text-sm font-semibold
+              hover:bg-primary hover:text-white
+              transition-colors
+            "
+                    >
+                        <Phone className="h-4 w-4" />
+                        {place.phone}
+                    </a>
+
+                    {/* WhatsApp */}
+                    <a
+                        href={`https://wa.me/54${whatsappNumber}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+              flex-1 inline-flex items-center justify-center gap-2
+              rounded-xl bg-green-600 text-white
+              py-2 text-sm font-semibold
+              hover:bg-green-700 transition-colors
+            "
+                    >
+                        <WhatsappIcon className="h-4 w-4 fill-current" />
+                        WhatsApp
+                    </a>
                 </div>
-            </CardContent>
-
+            </div>
         </Card>
     );
 }
