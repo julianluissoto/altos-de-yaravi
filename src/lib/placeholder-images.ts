@@ -105,6 +105,19 @@ const placeholderImages = [
     imageUrl: 'https://res.cloudinary.com/julian-soto/image/upload/v1765483346/altos%20de%20yaravi/cicuitos/la-cumbrecita-2-1024x720_kgik2a.jpg',
     imageHint: 'pueblo alpino'
   },
+
+  {
+    id: 'cerro-pistarini',
+    description: 'Cerro Pistarini',
+    imageUrl: 'https://res.cloudinary.com/julian-soto/image/upload/v1765806066/altos%20de%20yaravi/circuitos-cortos/cerro_pistarini_alnwjw.webp',
+    imageHint: 'cerro pistarini'
+  },
+  {
+    id: 'costanera',
+    description: 'Costanera de Embalse',
+    imageUrl: 'https://res.cloudinary.com/julian-soto/image/upload/v1765806434/altos%20de%20yaravi/circuitos-cortos/balsas_mgffbm.jpg',
+    imageHint: 'costanera embalse'
+  }
 ];
 
 const galleryImages = [

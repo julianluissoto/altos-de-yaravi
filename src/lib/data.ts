@@ -157,6 +157,25 @@ export const touristCircuitsData = [
   }
 ];
 
+export const shortCircuitsData = [
+  {
+    id: 4,
+    name: 'Paseo por la Costanera',
+    description: 'Un recorrido ideal para caminar o andar en bicicleta bordeando el lago. Disfruta de las vistas, los paradores y la brisa del embalse.',
+    travelTime: 'Variable',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d3376.101528510691!2d-64.4057232232879!3d-32.20149478464547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e2!4m5!1s0x95d29f9580e920c9%3A0xdd937efb8122a0cc!2sAltos%20de%20yaravi%2C%20Embalse%2C%20Provincia%20de%20C%C3%B3rdoba!3m2!1d-32.1997627!2d-64.39934889999999!4m3!3m2!1d-32.2039182!2d-64.4069481!5e0!3m2!1ses-419!2sar!4v1765805812982!5m2!1ses-419!2sar',
+    image: getImage('costanera'),
+  },
+  {
+    id: 5,
+    name: 'Subida al Cerro Pistarini',
+    description: 'Una caminata corta pero con una gran recompensa. Desde la cima del Cerro Pistarini (Mirador de la T) tendrás una vista 360° de la ciudad y el lago.',
+    travelTime: 'Aprox. 45 min (ida y vuelta)',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1117.4380798203565!2d-64.42818473032808!3d-32.22071286379346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDEzJzE0LjYiUyA2NMKwMjUnMzkuMiJX!5e1!3m2!1ses-419!2sar!4v1765805913745!5m2!1ses-419!2sar',
+    image: getImage('cerro-pistarini'),
+  }
+];
+
 export const whereToEatData = [
   {
     id: 1,
