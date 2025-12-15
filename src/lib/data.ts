@@ -79,13 +79,13 @@ export const placesToVisitData = [
     id: 2,
     name: 'Segunda usina',
     description: 'Este espejo de agua, rodeado de un paisaje serrano único, es un destino imperdible para los amantes de la naturaleza, los deportes acuáticos y la tranquilidad.',
-    image: getImage('place-2'),
+    image: getImage('place-3'),
   },
   {
     id: 3,
     name: 'El Mirador',
     description: 'Ofrece una panorámica espectacular del lago y los cerros circundantes. Desde allí, los visitantes pueden contemplar los reflejos del atardecer sobre el agua, respirar aire puro y sumergirse en la tranquilidad del paisaje serrano',
-    image: getImage('place-3'),
+    image: getImage('place-2'),
   },
 ];
 
