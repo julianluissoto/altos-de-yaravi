@@ -17,7 +17,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 
 function GalleryGrid({ images }: { images: ImagePlaceholder[] }) {
-  console.log(images);
   const [selectedImageIndex, setSelectedImageIndex] = React.useState<number | null>(null);
 
   const handleOpen = (index: number) => setSelectedImageIndex(index);

@@ -1,12 +1,18 @@
+
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 import { heroImage } from '@/lib/data';
 import Link from 'next/link';
+import { MessageCircle } from 'lucide-react';
 
 export default function Hero() {
+
+
+
   return (
-    <section id="home" className="relative h-[60vh] md:h-[75vh] w-full">
+    <section id="home" className="relative h-[vh] md:h-[50vh] w-full">
       <Image
         src={heroImage.imageUrl}
         alt={heroImage.description}
@@ -24,11 +30,40 @@ export default function Hero() {
           Descubrí Embalse de Calamuchita.
           Naturaleza, tranquilidad y aventura en el corazón de Córdoba.
         </p>
-        <Link className='mt-4' href="#contact" passHref>
-          <Button size="lg" className="w-full md:w-auto">
-            Consultar Disponibilidad
+
+
+        <div className="flex flex-row gap-4 mt-4 w-full md:w-auto">
+          {/* Botón navegación interna */}
+          <Link href="#contact" className="w-1/2 md:w-auto">
+            <Button
+              size="lg"
+              className="w-full md:w-auto h-12 px-6"
+            >
+              Consultar Disponibilidad
+            </Button>
+          </Link>
+
+          {/* Botón WhatsApp */}
+          <Button
+            asChild
+            size="lg"
+            className="w-1/2 md:w-auto h-12 px-6 bg-green-600 hover:bg-green-700 text-white"
+          >
+            <a
+              href={`https://wa.me/${process.env.WHATSAPP_API_NUMBER}?text=${encodeURIComponent(
+                "Hola! Quiero consultar disponibilidad 😊"
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center whitespace-nowrap"
+            >
+              Enviar WhatsApp
+            </a>
           </Button>
-        </Link>
+        </div>
+
+
+
       </div>
     </section>
   );
