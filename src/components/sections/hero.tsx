@@ -50,7 +50,7 @@ export default function Hero() {
             className="w-1/2 md:w-auto h-12 px-6 bg-green-600 hover:bg-green-700 text-white"
           >
             <a
-              href={`https://wa.me/${process.env.WHATSAPP_API_NUMBER}?text=${encodeURIComponent(
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_API_NUMBER}?text=${encodeURIComponent(
                 "Hola! Quiero consultar disponibilidad 😊"
               )}`}
               target="_blank"

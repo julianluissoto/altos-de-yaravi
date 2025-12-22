@@ -20,7 +20,6 @@ const initialState: FormState = {
 };
 const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_API_NUMBER;
 
-
 function SubmitButton() {
     const { pending } = useFormStatus();
     return (
