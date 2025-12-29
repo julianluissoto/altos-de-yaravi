@@ -58,6 +58,7 @@ export default function Reviews() {
           opts={{
             align: "start",
             loop: true,
+            slidesToScroll: 1,
           }}
           className="mx-auto w-full max-w-sm md:max-w-2xl lg:max-w-4xl"
         >
