@@ -15,6 +15,19 @@ const VisitCounter = () => {
         const counterRef = doc(firestore, 'visits', 'site-counter');
         const hasVisitedKey = 'hasVisitedSiteInThisSession';
 
+        const getVisitCount = async () => {
+            try {
+                const counterDoc = await getDoc(counterRef);
+                if (counterDoc.exists()) {
+                    setVisits(counterDoc.data().count);
+                } else {
+                    setVisits(0);
+                }
+            } catch (error) {
+                console.error("Error fetching visit count: ", error);
+            }
+        };
+
         const incrementVisit = async () => {
             try {
                 const newCount = await runTransaction(firestore, async (transaction) => {
@@ -34,19 +47,6 @@ const VisitCounter = () => {
                 console.error("Error updating visit counter: ", error);
                 // If transaction fails, just get the current count.
                 getVisitCount();
-            }
-        };
-
-        const getVisitCount = async () => {
-            try {
-                const counterDoc = await getDoc(counterRef);
-                if (counterDoc.exists()) {
-                    setVisits(counterDoc.data().count);
-                } else {
-                    setVisits(0);
-                }
-            } catch (error) {
-                console.error("Error fetching visit count: ", error);
             }
         };
 
