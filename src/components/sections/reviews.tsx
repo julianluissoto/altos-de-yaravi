@@ -8,13 +8,21 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Star } from 'lucide-react';
 
 function ReviewCard({ review }: { review: Review }) {
+  const getInitials = (name: string) => {
+    const names = name.split(' ');
+    if (names.length > 1) {
+      return `${names[0][0]}${names[names.length - 1][0]}`;
+    }
+    return name.charAt(0);
+  };
+
   return (
     <Card className="flex flex-col justify-between h-full min-h-[220px] shadow-md">
       <CardHeader className="pb-4">
         <div className="flex items-center gap-4">
           <Avatar>
-            <AvatarImage src={`https://i.pravatar.cc/150?u=${review.name}`} />
-            <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+            <AvatarImage src={review.avatar} alt={`Avatar de ${review.name}`} />
+
           </Avatar>
           <div>
             <h4 className="font-semibold">{review.name}</h4>

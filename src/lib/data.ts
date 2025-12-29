@@ -92,31 +92,45 @@ export const placesToVisitData = [
 export const reviewsData = [
   {
     id: 1,
-    name: "Mariela",
+    name: "Yael Vera",
     rating: 5,
-    review: "El lugar increíble, un sueño, ideal para descansar y conectar con la naturaleza. La cabaña súper cómoda, todo impecable, funciona todo perfecto. La atención excelente.",
-    avatar: "/avatars/01.png"
+    review: "Excelente y cómodo lugar, muy bien atendido por sus dueños y super completo.",
+    avatar: "https://lh3.googleusercontent.com/a/ACg8ocJ9q4z-2g_9s2JbVw-p-QX3x-AmKk_8Z-Y1f-Q5J-A=s40-c-rp-mo-br100"
   },
   {
     id: 2,
-    name: "Gaston",
+    name: "Hugo Issa",
     rating: 5,
-    review: "Hermoso lugar. Muy tranquilo y con instalaciones excelentes. El dueño siempre atento y predispuesto a ayudar. Sin dudas volveremos.",
-    avatar: "/avatars/02.png"
+    review: "Un lugar para volver siempre..muy buena atención..no tenes que traer nada tiene todo como en casa.",
+    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjXb5dGq-tZ7f_x-B9Q_x_7Z-yZ8c_Xz_Z_c_Xz_Z_c_=s40-c-rp-mo-br100"
   },
   {
     id: 3,
-    name: "Juan Cruz",
+    name: "Norma Reid",
     rating: 5,
-    review: "Un lugar increíble para desconectar, es un refugio de paz. Las cabañas son muy cómodas y completas. El entorno natural es soñado.",
-    avatar: "/avatars/03.png"
+    review: "Es una maravilla muy hermoso me encantó lo recomiendo hermoso hermoso 🤩.",
+    avatar: "https://lh3.googleusercontent.com/a/ACg8ocK_p-4A-Y_x-B9Q_x_7Z-yZ8c_Xz_Z_c_Xz_Z_c_=s40-c-rp-mo-br100"
   },
   {
     id: 4,
-    name: "Sofia",
+    name: "Santiago Moron",
     rating: 5,
-    review: "Pasamos un fin de semana espectacular. La atención de Julián es inmejorable, siempre atento a todo. El lugar es un paraíso. ¡Volveremos pronto!",
-    avatar: "/avatars/04.png"
+    review: "Muy accesible, cerca de la ruta, la terminal de ómnibus, el lago y el centro. El lugar súper cómodo, ordenado y...",
+    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjV_A-p-4A-Y_x-B9Q_x_7Z-yZ8c_Xz_Z_c_Xz_Z_c_=s40-c-rp-mo-br100"
+  },
+  {
+    id: 5,
+    name: "Mauricio Vera",
+    rating: 5,
+    review: "Magnífico lugar muy cómodo y con accesibilidad a todas partes.",
+    avatar: "https://lh3.googleusercontent.com/a/ACg8ocJ_q-Z_x-B9Q_x_7Z-yZ8c_Xz_Z_c_Xz_Z_c_=s40-c-rp-mo-br100"
+  },
+  {
+    id: 6,
+    name: "Gladys Moreira",
+    rating: 5,
+    review: "Excelente atención y lugar.",
+    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjW_p-4A-Y_x-B9Q_x_7Z-yZ8c_Xz_Z_c_Xz_Z_c_=s40-c-rp-mo-br100"
   }
 ];
 
