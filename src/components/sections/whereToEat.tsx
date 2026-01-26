@@ -10,21 +10,29 @@ import { WhatsappIcon } from '../icons/whatsapp-icon';
 function RestaurantCard({ place }: { place: WhereToEatItem }) {
     const whatsappNumber = place.phone.replace(/\D/g, "");
 
+    const DEFAULT_IMAGE =
+        "https://res.cloudinary.com/julian-soto/image/upload/v1769455446/altos%20de%20yaravi/imagen_default_ex6xlg.png";
+
+    const imageSrc =
+        place.logo?.imageUrl && place.logo.imageUrl.trim() !== ""
+            ? place.logo.imageUrl
+            : DEFAULT_IMAGE;
+
     return (
         <Card
             className="
-        overflow-hidden rounded-2xl
-        shadow-md transition-all duration-300
-        hover:-translate-y-1 hover:shadow-xl
-        bg-white
-      "
+                overflow-hidden rounded-2xl
+                shadow-md transition-all duration-300
+                hover:-translate-y-1 hover:shadow-xl
+                bg-white
+            "
         >
             {/* Imagen */}
             <div className="relative w-full h-48 md:h-56">
                 <Image
-                    src={place.logo.imageUrl}
+                    src={imageSrc}
                     alt={`Logo de ${place.name}`}
-                    data-ai-hint={place.logo.imageHint}
+                    data-ai-hint={place.logo?.imageHint ?? "restaurant food"}
                     fill
                     className="object-cover"
                 />
@@ -40,34 +48,31 @@ function RestaurantCard({ place }: { place: WhereToEatItem }) {
                     {place.description}
                 </p>
 
-                {/* Teléfono + WhatsApp */}
                 <div className="flex gap-3 w-full">
-                    {/* Teléfono */}
                     <a
                         href={`tel:${place.phone}`}
                         className="
-              flex-1 inline-flex items-center justify-center gap-2
-              rounded-xl border border-primary
-              text-primary py-2 text-sm font-semibold
-              hover:bg-primary hover:text-white
-              transition-colors
-            "
+                            flex-1 inline-flex items-center justify-center gap-2
+                            rounded-xl border border-primary
+                            text-primary py-2 text-sm font-semibold
+                            hover:bg-primary hover:text-white
+                            transition-colors
+                        "
                     >
                         <Phone className="h-4 w-4" />
                         {place.phone}
                     </a>
 
-                    {/* WhatsApp */}
                     <a
                         href={`https://wa.me/54${whatsappNumber}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="
-              flex-1 inline-flex items-center justify-center gap-2
-              rounded-xl bg-green-600 text-white
-              py-2 text-sm font-semibold
-              hover:bg-green-700 transition-colors
-            "
+                            flex-1 inline-flex items-center justify-center gap-2
+                            rounded-xl bg-green-600 text-white
+                            py-2 text-sm font-semibold
+                            hover:bg-green-700 transition-colors
+                        "
                     >
                         <WhatsappIcon className="h-4 w-4 fill-current" />
                         WhatsApp
@@ -77,7 +82,6 @@ function RestaurantCard({ place }: { place: WhereToEatItem }) {
         </Card>
     );
 }
-
 
 export default function WhereToEat() {
     return (
