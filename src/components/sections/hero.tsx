@@ -32,15 +32,24 @@ export default function Hero() {
         </p>
 
 
-        <div className="flex flex-row gap-4 mt-4 w-full md:w-auto">
+        {/* Contenedor: centrado en desktop (md:justify-center) */}
+        <div className="flex flex-row gap-4 mt-8 w-full md:justify-center items-stretch">
+
           {/* Botón navegación interna */}
           <Link href="#contact" className="w-1/2 md:w-auto">
             <Button
               size="lg"
-
-              className="w-full md:w-auto h-12 px-8 text-xl animate-pulse-slow hover:scale-105 transition-transform"
+              className="
+        w-full md:w-[240px] 
+        h-16 md:h-14 
+        px-4 
+        text-sm sm:text-base md:text-lg
+        leading-tight
+        animate-pulse-slow 
+        hover:scale-105 transition-transform
+      "
             >
-              Consultar Disponibilidad
+              <span className="text-center">Consultar Disponibilidad</span>
             </Button>
           </Link>
 
@@ -48,7 +57,13 @@ export default function Hero() {
           <Button
             asChild
             size="lg"
-            className="w-1/2 md:w-auto h-12 px-6 bg-green-600 hover:bg-green-700 text-white"
+            className="
+      w-1/2 md:w-[240px] 
+      h-16 md:h-14 
+      px-4 
+      bg-green-600 hover:bg-green-700 text-white
+      text-sm sm:text-base md:text-lg
+    "
           >
             <a
               href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_API_NUMBER}?text=${encodeURIComponent(
@@ -56,7 +71,7 @@ export default function Hero() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center whitespace-nowrap"
+              className="flex items-center justify-center text-center"
             >
               Enviar WhatsApp
             </a>
