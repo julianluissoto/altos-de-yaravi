@@ -182,13 +182,13 @@ const dondeComerImages = [
   },
   {
     id: "comida-3",
-    imageUrl: "https://embalse.gov.ar/wp-content/uploads/2025/01/Las-Brasas-1.jpeg",
+    imageUrl: "https://res.cloudinary.com/julian-soto/image/upload/v1769454976/altos%20de%20yaravi/photo1jpg_k1mjw7.jpg",
     imageHint: "las brasas",
 
   },
   {
     id: "comida-4",
-    imageUrl: "https://embalse.gov.ar/wp-content/uploads/2025/01/Capri-2.jpeg",
+    imageUrl: "https://res.cloudinary.com/julian-soto/image/upload/v1769455201/altos%20de%20yaravi/capri_jdc9yt.jpg",
     imageHint: "capri",
 
   }
