@@ -37,7 +37,8 @@ export default function Hero() {
           <Link href="#contact" className="w-1/2 md:w-auto">
             <Button
               size="lg"
-              className="w-full md:w-auto h-12 px-6"
+
+              className="w-full md:w-auto h-12 px-8 text-xl animate-pulse-slow hover:scale-105 transition-transform"
             >
               Consultar Disponibilidad
             </Button>
