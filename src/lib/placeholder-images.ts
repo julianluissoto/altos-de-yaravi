@@ -191,6 +191,11 @@ const dondeComerImages = [
     imageUrl: "https://res.cloudinary.com/julian-soto/image/upload/v1769455201/altos%20de%20yaravi/capri_jdc9yt.jpg",
     imageHint: "capri",
 
+  },
+  {
+    id: "comida-5",
+    imageUrl: "https://res.cloudinary.com/julian-soto/image/upload/v1769820137/altos%20de%20yaravi/la-blonda_c80uwh.webp",
+    imageHint: "la blonda",
   }
 
 ]

@@ -202,14 +202,14 @@ export const whereToEatData = [
     id: 2,
     name: "Parrilla las Brasas",
     description: "Las mejores carnes a la parrilla, chivito y especialidad en ranas y pejerrey.",
-    logo: getImageRestaurant('comida-2'),
+    logo: getImageRestaurant('comida-3'),
     phone: "3571-4878888"
   },
   {
     id: 3,
     name: "Tom Blake",
     description: "Bar-restaurant, picadas, hamburguesas y cervezas artesanales.",
-    logo: getImageRestaurant('comida-3'),
+    logo: getImageRestaurant('comida-2'),
     phone: "3571-310426"
   },
   {
@@ -218,6 +218,13 @@ export const whereToEatData = [
     description: "Especialidad en milanesas, variedad de pizzas y guarniciones.",
     logo: getImageRestaurant('comida-4'),
     phone: "3571-485774"
+  },
+  {
+    id: 5,
+    name: "La Blonda",
+    description: "Especialidad en milanesas, tacos, pizzas y cerveza artesanal.",
+    logo: getImageRestaurant('comida-5'),
+    phone: "3571-631490"
   }
 ];
 
