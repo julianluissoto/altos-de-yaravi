@@ -1,7 +1,7 @@
 import { accommodationsData, Accommodation } from '@/lib/data';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { CreditCard, Users, Bed, Wifi, Wind, Droplets, Leaf, Mountain, Car, Flame, Fan, Tv } from 'lucide-react';
+import { CreditCard, Users, Bed, Wifi, Wind, Droplets, Leaf, Mountain, Car, Flame, Fan, Tv, BedDouble, Refrigerator } from 'lucide-react';
 import Link from 'next/link';
 
 const featureIcons: { [key: string]: React.ReactNode } = {
@@ -10,7 +10,8 @@ const featureIcons: { [key: string]: React.ReactNode } = {
   "lake view": <Droplets className="h-4 w-4 text-primary" />,
   "mountain view": <Mountain className="h-4 w-4 text-accent" />,
   "cama king-size": <Bed className="h-4 w-4" />,
-  "cama 2 plazas": <Bed className="h-4 w-4" />,
+  "cama 2 plazas": <BedDouble className="h-4 w-4" />,
+  "camas individuales": <Bed className="h-4 w-4" />,
   "balcón privado": <Wind className="h-4 w-4" />,
   "jacuzzi": <Droplets className="h-4 w-4" />,
   "chimenea": <Leaf className="h-4 w-4 text-secondary" />,
@@ -18,7 +19,7 @@ const featureIcons: { [key: string]: React.ReactNode } = {
   "vista al lago": <Droplets className="h-4 w-4 text-primary" />,
   "vista a la montaña": <Mountain className="h-4 w-4 text-accent" />,
   "piscina privada": <Droplets className="h-4 w-4" />,
-  "cocina completa": <Leaf className="h-4 w-4 text-secondary" />,
+  "cocina completa": <Refrigerator className="h-4 w-4 text-secondary" />,
   "cochera": <Car className="h-4 w-4" />,
   "asador": <Flame className="h-4 w-4" />,
   "wifi": <Wifi className="h-4 w-4" />,

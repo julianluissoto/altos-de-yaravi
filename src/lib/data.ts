@@ -36,7 +36,7 @@ export const accommodationsData = [
     description: "Còmodas instalaciones ,un lugar ideal para descanzar, seguro y cerca de todo. Perfecto para salir en familia",
     price: "Consultar",
     guests: 4,
-    features: ["cochera", "asador", "wifi", "parque", "ventilador", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina equipada"],
+    features: ["cochera", "asador", "wifi", "parque", "ventilador", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina completa", "smart tv"],
     image: getImage('cabin-1'),
     interiorImages: [
       getImage('cabin-interior-1'),
@@ -55,7 +55,7 @@ export const accommodationsData = [
     description: "Disfruta de la tranquilidad de las sierras con todas las comodidades que necesitas para una estancia inolvidable.",
     price: "Consultar",
     guests: 5,
-    features: ["cochera", "asador", "wifi", "ventilador", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina equipada"],
+    features: ["cochera", "asador", "wifi", "ventilador", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina completa", "smart tv"],
     image: getImage('cabin-1'),
     interiorImages: [
       getImage('cabin-1-interior-1'),
