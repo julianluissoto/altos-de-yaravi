@@ -187,7 +187,16 @@ export const shortCircuitsData = [
     travelTime: 'Aprox. 45 min (ida y vuelta)',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1117.4380798203565!2d-64.42818473032808!3d-32.22071286379346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDEzJzE0LjYiUyA2NMKwMjUnMzkuMiJX!5e1!3m2!1ses-419!2sar!4v1765805913745!5m2!1ses-419!2sar',
     image: getImage('cerro-pistarini'),
-  }
+  },
+  {
+    id: 6,
+    name: 'Segunda Usina',
+    description: 'Un paseo ideal para de un dique con su lago. La Segunda Usina es un lugar tranquilo con ollas naturales y playitas para descansar y refrescarse.',
+    travelTime: 'Aprox. 30 min (ida y vuelta)',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d40624.08312899109!2d-64.4040397!3d-32.1894837!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x95d29f9580e920c9%3A0xdd937efb8122a0cc!2sAltos%20de%20yaravi%2C%20RJ22%2B47%2C%20X5856%20Embalse%2C%20C%C3%B3rdoba!3m2!1d-32.1997368!2d-64.3993526!4m5!1s0x95cd61ed56ce18a1%3A0x45ed14b5e3ddeb03!2sSegunda%20Usina%2C%20X5857%2C%20C%C3%B3rdoba!3m2!1d-32.1655594!2d-64.3797678!5e1!3m2!1ses-419!2sar!4v1771522852359!5m2!1ses-419!2sar',
+    image: getImage('segunda-usina'),
+  },
+
 ];
 
 export const whereToEatData = [

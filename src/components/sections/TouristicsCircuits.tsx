@@ -12,10 +12,14 @@ export default function TouristCircuits() {
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto" defaultValue="item-1">
+        <Accordion
+          type="multiple"
+          defaultValue={["item-1", "item-2"]}
+          className="w-full max-w-4xl mx-auto"
+        >
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-2xl font-headline font-bold hover:no-underline">
-              Circuitos Turísticos (Paseos Largos)
+              Circuitos Turísticos (Paseos Largos, todo el día)
             </AccordionTrigger>
             <AccordionContent>
               <div className="space-y-12 flex flex-col items-center pt-8">
@@ -25,9 +29,10 @@ export default function TouristCircuits() {
               </div>
             </AccordionContent>
           </AccordionItem>
+
           <AccordionItem value="item-2">
             <AccordionTrigger className="text-2xl font-headline font-bold hover:no-underline">
-              Circuitos Cortos (Paseos Locales)
+              Circuitos Cortos (Paseos Locales, medio día o menos)
             </AccordionTrigger>
             <AccordionContent>
               <div className="space-y-12 flex flex-col items-center pt-8">
