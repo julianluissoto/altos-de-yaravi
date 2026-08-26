@@ -3,6 +3,7 @@
 import { z } from 'zod';
 import { Resend } from 'resend';
 import { format } from 'date-fns';
+import { Phone } from 'lucide-react';
 
 export type FormState = {
   message: string;
@@ -39,7 +40,7 @@ export async function sendEmail(
 
   // Honeypot check
   if (parsed.data.website) {
-      return {
+    return {
       message: '¡Mensaje Enviado! Gracias por contactarnos.',
     };
   }
@@ -50,8 +51,10 @@ export async function sendEmail(
     const formattedCheckin = checkin ? format(new Date(checkin), "dd/MM/yyyy") : "No especificada";
     const formattedCheckout = checkout ? format(new Date(checkout), "dd/MM/yyyy") : "No especificada";
 
-    
-    const whatsappLink = `https://wa.me/549${phone}?text=${encodeURIComponent(`Hola, soy ${name}. Me gustaría hacer una consulta sobre reservas.`)}`;
+
+
+    //const whatsappLink = `https://wa.me/${process.env.WHATSAPP_API_NUMBER}?text=${encodeURIComponent(`Hola, soy ${name}. Me gustaría hacer una consulta sobre reservas.`)}`;
+    const whatapplinkMail = `https://wa.me/${"549" + phone}?text=${encodeURIComponent(`Hola, soy julian de Altos de yaravi. Nos habias dejado una consulta por alojamiento en embalse`)}`;
 
     await resend.emails.send({
       from: 'altosdeyaravi@resend.dev',
@@ -61,7 +64,7 @@ export async function sendEmail(
         <p>Has recibido una nueva consulta de reserva:</p>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${phone} (<a href="${whatsappLink}" target="_blank">Contactar por WhatsApp</a>)</p>
+        <p><strong>Teléfono:</strong> ${phone} (<a href="${whatapplinkMail}" target="_blank">Contactar por WhatsApp</a>)</p>
         <p><strong>Llegada:</strong> ${formattedCheckin}</p>
         <p><strong>Salida:</strong> ${formattedCheckout}</p>
         <p><strong>Mensaje:</strong></p>
