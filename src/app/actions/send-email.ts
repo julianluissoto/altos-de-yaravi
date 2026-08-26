@@ -51,7 +51,7 @@ export async function sendEmail(
     const formattedCheckout = checkout ? format(new Date(checkout), "dd/MM/yyyy") : "No especificada";
 
     
-    const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(`Hola, soy ${name}. Me gustaría hacer una consulta sobre reservas.`)}`;
+    const whatsappLink = `https://wa.me/549${phone}?text=${encodeURIComponent(`Hola, soy ${name}. Me gustaría hacer una consulta sobre reservas.`)}`;
 
     await resend.emails.send({
       from: 'altosdeyaravi@resend.dev',
