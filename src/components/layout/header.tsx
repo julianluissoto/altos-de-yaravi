@@ -10,12 +10,13 @@ import React from 'react';
 const navLinks = [
   { href: '#accommodations', label: 'Alojamientos' },
   { href: '#gallery', label: 'Galería' },
-  { href: '#reviews', label: 'Reseñas' },
   { href: '#places-to-visit', label: 'Lugares a Visitar' },
-  { href: '#location', label: 'Ubicación' },
-  { href: '#contact', label: 'Contacto y Reservas' },
   { href: '#tourist-circuits', label: 'Circuitos' },
   { href: '#where-to-eat', label: 'Dónde Comer' },
+  { href: '#location', label: 'Ubicación' },
+  { href: '#reviews', label: 'Reseñas' },
+  { href: '#contact', label: 'Contacto y Reservas' },
+
 ];
 
 export default function Header() {

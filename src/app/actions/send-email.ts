@@ -39,8 +39,7 @@ export async function sendEmail(
 
   // Honeypot check
   if (parsed.data.website) {
-    // This is likely a bot. Pretend it was successful but don't send the email.
-    return {
+      return {
       message: '¡Mensaje Enviado! Gracias por contactarnos.',
     };
   }
@@ -51,9 +50,8 @@ export async function sendEmail(
     const formattedCheckin = checkin ? format(new Date(checkin), "dd/MM/yyyy") : "No especificada";
     const formattedCheckout = checkout ? format(new Date(checkout), "dd/MM/yyyy") : "No especificada";
 
-    // Limpiar el número de teléfono para el enlace de WhatsApp
-
-    const whatsappLink = `https://wa.me/${process.env.WHATSAPP_API_NUMBER}?text=${encodeURIComponent(`Hola, soy ${name}. Me gustaría hacer una consulta sobre reservas.`)}`;
+    
+    const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(`Hola, soy ${name}. Me gustaría hacer una consulta sobre reservas.`)}`;
 
     await resend.emails.send({
       from: 'altosdeyaravi@resend.dev',
