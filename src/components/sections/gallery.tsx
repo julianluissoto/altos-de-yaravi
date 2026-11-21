@@ -1,106 +1,85 @@
 'use client';
 
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
+import React from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { galleryImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
+// Mosaico que se repite cada 6 fotos: en escritorio ocupa 3 filas de 4 columnas.
+const tileClasses = [
+  'col-span-2 md:row-span-2',
+  '',
+  'md:row-span-2',
+  '',
+  'md:col-span-2',
+  'col-span-2',
+];
 
 function GalleryGrid({ images }: { images: ImagePlaceholder[] }) {
-  const [selectedImageIndex, setSelectedImageIndex] = React.useState<number | null>(null);
+  const [selected, setSelected] = React.useState<number | null>(null);
+  const current = selected !== null ? images[selected] : null;
 
-  const handleOpen = (index: number) => setSelectedImageIndex(index);
-  const handleClose = () => setSelectedImageIndex(null);
-
-  const handlePrevious = (e: React.MouseEvent) => {
+  const step = (delta: number) => (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex! - 1));
-    }
+    setSelected((i) => (i === null ? i : (i + delta + images.length) % images.length));
   };
-
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex! + 1));
-    }
-  };
-
-  const currentImage = selectedImageIndex !== null ? images[selectedImageIndex] : null;
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid auto-rows-[150px] grid-cols-2 gap-2 md:auto-rows-[200px] md:grid-cols-4 md:gap-3">
         {images.map((image, index) => (
-          <Card
+          <button
             key={image.id}
-            className="overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer"
-            onClick={() => handleOpen(index)}
+            type="button"
+            onClick={() => setSelected(index)}
+            aria-label={`Ampliar foto: ${image.title ?? ''}`}
+            className={cn(
+              'group relative overflow-hidden rounded-xl bg-muted',
+              tileClasses[index % tileClasses.length]
+            )}
           >
-            <CardContent className="p-0">
-              <div className="relative aspect-video w-full">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.title!}
-                  data-ai-hint={image.imageHint}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-              </div>
-            </CardContent>
-
-
-          </Card>
+            <Image
+              src={image.imageUrl}
+              alt={image.title ?? ''}
+              data-ai-hint={image.imageHint}
+              fill
+              sizes="(max-width: 768px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </button>
         ))}
       </div>
 
-
-
-      <Dialog open={selectedImageIndex !== null} onOpenChange={(isOpen) => !isOpen && handleClose()}>
-        <DialogContent className="max-w-4xl w-full p-2 sm:p-4">
-          {currentImage && (
+      <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
+        <DialogContent className="w-full max-w-5xl border-0 bg-background p-3 sm:p-4">
+          {current && (
             <>
               <DialogHeader className="sr-only">
-                <DialogTitle>Imagen Ampliada</DialogTitle>
+                <DialogTitle>{current.title ?? 'Foto ampliada'}</DialogTitle>
               </DialogHeader>
-              <div className="relative aspect-video w-full mt-4">
-                <Image
-                  src={currentImage.imageUrl}
-                  alt={currentImage.title!}
-                  fill
-                  className="object-contain rounded-md"
-                />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={handlePrevious}
-                  className="absolute left-0 sm:-left-12 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/30 hover:bg-black/50 text-white"
-                  aria-label="Imagen anterior"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={handleNext}
-                  className="absolute right-0 sm:-right-12 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/30 hover:bg-black/50 text-white"
-                  aria-label="Siguiente imagen"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </Button>
+              <div className="relative mt-6 aspect-[3/2] w-full">
+                <Image src={current.imageUrl} alt={current.title ?? ''} fill sizes="100vw" className="rounded-lg object-contain" />
               </div>
-              <p className="text-center text-muted-foreground mt-2">{currentImage.title}</p>
+              <div className="flex items-center justify-between gap-4 px-1">
+                <p className="text-sm text-muted-foreground">
+                  {current.title}
+                  <span className="ml-3 tabular-nums">
+                    {selected! + 1} / {images.length}
+                  </span>
+                </p>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="icon" className="rounded-full" onClick={step(-1)} aria-label="Foto anterior">
+                    <ChevronLeft className="h-5 w-5" strokeWidth={1.5} />
+                  </Button>
+                  <Button variant="outline" size="icon" className="rounded-full" onClick={step(1)} aria-label="Foto siguiente">
+                    <ChevronRight className="h-5 w-5" strokeWidth={1.5} />
+                  </Button>
+                </div>
+              </div>
             </>
           )}
         </DialogContent>
@@ -109,22 +88,19 @@ function GalleryGrid({ images }: { images: ImagePlaceholder[] }) {
   );
 }
 
-
 export default function Gallery() {
   return (
-    <section id="gallery" className="bg-secondary/10 py-12 md:py-24">
-      <div className="container">
-        <div className="mb-12 text-center">
-          <h2 className="font-headline text-4xl font-bold md:text-5xl">Galería de Fotos</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg md:text-xl">
-            Explora embalse y descubre paisajes ùnicos.
-          </p>
+    <section id="gallery" className="container scroll-mt-20 py-20 md:py-28">
+      <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p className="eyebrow">Galería</p>
+          <h2 className="section-title">Embalse en fotos</h2>
         </div>
-
-        <GalleryGrid images={galleryImages} />
-
-
+        <p className="max-w-md text-muted-foreground">
+          El lago, el dique y los paisajes que vas a tener a pocos minutos.
+        </p>
       </div>
+      <GalleryGrid images={galleryImages} />
     </section>
   );
 }

@@ -1,59 +1,54 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Hero from '@/components/sections/hero';
+import Highlights from '@/components/sections/highlights';
 import Accommodations from '@/components/sections/accommodations';
-import Gallery from '@/components/sections/gallery'; import Contact from '@/components/sections/contact';
-import PlacesToVisit from '@/components/sections/places-to-visit';
+import Gallery from '@/components/sections/gallery';
+import Explore from '@/components/sections/explore';
 import LocationMap from '@/components/sections/location-map';
-import Reviews from '@/components/sections/reviews'; import { AnimatedSection } from '@/components/shared/animated-section';
-import { ScrollToTopButton } from '@/components/shared/ScrollToTopButton'; import WhereToEat from '@/components/sections/whereToEat';
-import TouristCircuits from '@/components/sections/TouristicsCircuits';
+import Reviews from '@/components/sections/reviews';
+import Contact from '@/components/sections/contact';
+import { AnimatedSection } from '@/components/shared/animated-section';
+import { FloatingWhatsapp } from '@/components/shared/floating-whatsapp';
+import { ScrollToTop } from '@/components/shared/scroll-to-top';
 
 export default function Home() {
   return (
     <div className="min-h-dvh bg-background">
-      <div className="flex flex-col max-w-screen-xl mx-auto">
-        <Header />
+      <Header />
 
-        <main>
-          <Hero />
+      <main>
+        <Hero />
+        <Highlights />
 
-          <AnimatedSection>
-            <Accommodations />
-          </AnimatedSection>
+        <AnimatedSection>
+          <Accommodations />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <Gallery />
-          </AnimatedSection>
+        <AnimatedSection>
+          <Gallery />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <PlacesToVisit />
-          </AnimatedSection>
+        <AnimatedSection>
+          <Explore />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <TouristCircuits />
-          </AnimatedSection>
+        <AnimatedSection>
+          <LocationMap />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <WhereToEat />
-          </AnimatedSection>
+        <AnimatedSection>
+          <Reviews />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <LocationMap />
-          </AnimatedSection>
+        <AnimatedSection>
+          <Contact />
+        </AnimatedSection>
+      </main>
 
-          <AnimatedSection>
-            <Reviews />
-          </AnimatedSection>
-
-          <AnimatedSection>
-            <Contact />
-          </AnimatedSection>
-        </main>
-
-        <Footer />
-        <ScrollToTopButton />
-      </div>
+      <Footer />
+      <ScrollToTop />
+      <FloatingWhatsapp />
     </div>
   );
 }

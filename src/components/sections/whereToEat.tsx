@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone } from "lucide-react";
 
-import { WhatsappIcon } from '../icons/whatsapp-icon';
+import { MessageCircle } from 'lucide-react';
 
 function RestaurantCard({ place }: { place: WhereToEatItem }) {
     const whatsappNumber = place.phone.replace(/\D/g, "");
@@ -74,7 +74,7 @@ function RestaurantCard({ place }: { place: WhereToEatItem }) {
                             hover:bg-green-700 transition-colors
                         "
                     >
-                        <WhatsappIcon className="h-4 w-4 fill-current" />
+                        <MessageCircle className="h-4 w-4" />
                         WhatsApp
                     </a>
                 </div>

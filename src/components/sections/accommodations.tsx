@@ -1,149 +1,143 @@
-import { accommodationsData, Accommodation } from '@/lib/data';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { CreditCard, Users, Bed, Wifi, Wind, Droplets, Leaf, Mountain, Car, Flame, Fan, Tv, BedDouble, Refrigerator } from 'lucide-react';
-import Link from 'next/link';
+'use client';
 
-const featureIcons: { [key: string]: React.ReactNode } = {
-  default: <Leaf className="h-4 w-4 text-secondary" />,
-  "forest view": <Leaf className="h-4 w-4 text-secondary" />,
-  "lake view": <Droplets className="h-4 w-4 text-primary" />,
-  "mountain view": <Mountain className="h-4 w-4 text-accent" />,
-  "cama king-size": <Bed className="h-4 w-4" />,
-  "cama 2 plazas": <BedDouble className="h-4 w-4" />,
-  "camas individuales": <Bed className="h-4 w-4" />,
-  "balcón privado": <Wind className="h-4 w-4" />,
-  "jacuzzi": <Droplets className="h-4 w-4" />,
-  "chimenea": <Leaf className="h-4 w-4 text-secondary" />,
-  "vista a las sierras": <Mountain className="h-4 w-4 text-accent" />,
-  "vista al lago": <Droplets className="h-4 w-4 text-primary" />,
-  "vista a la montaña": <Mountain className="h-4 w-4 text-accent" />,
-  "piscina privada": <Droplets className="h-4 w-4" />,
-  "cocina completa": <Refrigerator className="h-4 w-4 text-secondary" />,
-  "cochera": <Car className="h-4 w-4" />,
-  "asador": <Flame className="h-4 w-4" />,
-  "wifi": <Wifi className="h-4 w-4" />,
-  "ventilador": <Fan className="h-4 w-4" />,
-  "aire acondicionado": <Wind className="h-4 w-4" />,
-  "smart tv": <Tv className="h-4 w-4" />,
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import {
+  Users, Bed, BedDouble, Wifi, Wind, Droplets, Leaf, Mountain, Car, Flame, Fan, Tv,
+  Refrigerator, Trees,
+} from 'lucide-react';
+import { accommodationsData, Accommodation } from '@/lib/data';
+import { Button } from '@/components/ui/button';
+import { MessageCircle } from 'lucide-react';
+import { whatsappUrl } from '@/lib/whatsapp';
+import { cn } from '@/lib/utils';
+
+const iconProps = { className: 'h-5 w-5 shrink-0 text-primary', strokeWidth: 1.4 };
+
+const featureIcons: Record<string, React.ReactNode> = {
+  default: <Leaf {...iconProps} />,
+  'cama 2 plazas': <BedDouble {...iconProps} />,
+  'camas individuales': <Bed {...iconProps} />,
+  'cama king-size': <Bed {...iconProps} />,
+  'vista a las sierras': <Mountain {...iconProps} />,
+  'vista al lago': <Droplets {...iconProps} />,
+  'cocina completa': <Refrigerator {...iconProps} />,
+  cochera: <Car {...iconProps} />,
+  asador: <Flame {...iconProps} />,
+  wifi: <Wifi {...iconProps} />,
+  ventilador: <Fan {...iconProps} />,
+  'aire acondicionado': <Wind {...iconProps} />,
+  'smart tv': <Tv {...iconProps} />,
+  parque: <Trees {...iconProps} />,
 };
 
+function formatPrice(price: string) {
+  return /\d/.test(price) ? `$ ${price} / noche` : 'Tarifa a consultar';
+}
 
-function AccommodationDisplay({ accommodation, reverseLayout = false }: { accommodation: Accommodation, reverseLayout?: boolean }) {
-  const mainImage = accommodation?.image;
-  const interiorImages = accommodation?.interiorImages.slice(0, 4); // Ensure we only take 4 images
+function AccommodationDisplay({ accommodation, reverse }: { accommodation: Accommodation; reverse: boolean }) {
+  const images = [accommodation.image, ...accommodation.interiorImages.slice(0, 4)];
+  const [active, setActive] = React.useState(0);
+  const current = images[active];
 
   return (
-    <div
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${reverseLayout ? 'lg:grid-flow-col-dense' : ''
-        }`}
-    >
-      {/* TÍTULO SOLO MOBILE — ANTES DE LAS IMÁGENES */}
-      <h3 className="font-headline text-3xl font-bold lg:hidden">
-        {accommodation?.name}
-      </h3>
-
-      {/* ----------------- IMÁGENES ----------------- */}
-      <div
-        className={`grid grid-cols-2 grid-rows-2 gap-2 ${reverseLayout ? 'lg:col-start-2' : ''
-          }`}
-      >
-        <div className="col-span-2 row-span-2 relative min-h-[300px] lg:min-h-[450px] overflow-hidden rounded-lg shadow-lg">
+    <article className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-14">
+      {/* Fotos */}
+      <div className={cn('lg:col-span-7', reverse && 'lg:order-2')}>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
           <Image
-            src={mainImage.imageUrl}
-            alt={mainImage.description}
-            data-ai-hint={mainImage.imageHint}
+            key={current.imageUrl}
+            src={current.imageUrl}
+            alt={current.description}
+            data-ai-hint={current.imageHint}
             fill
-            className="object-cover transition-transform duration-300 hover:scale-105"
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="object-cover"
           />
+          <span className="absolute left-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+            Hasta {accommodation.guests} huéspedes
+          </span>
         </div>
-
-        {interiorImages?.map((image, index) => (
-          <div
-            key={index}
-            className="relative h-32 w-full overflow-hidden rounded-lg shadow-md lg:h-40"
-          >
-            <Image
-              src={image.imageUrl}
-              alt={image.description}
-              data-ai-hint={image.imageHint}
-              fill
-              className="object-cover transition-transform duration-300 hover:scale-105"
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* ----------------- TEXTO / DESCRIPCIÓN ----------------- */}
-      <div
-        className={`space-y-6 ${reverseLayout ? 'lg:col-start-1 lg:row-start-1' : ''
-          }`}
-      >
-        {/* TÍTULO SOLO DESKTOP */}
-        <h3 className="font-headline text-3xl font-bold hidden lg:block">
-          {accommodation?.name}
-        </h3>
-
-        <p className="text-muted-foreground">{accommodation?.description}</p>
-
-        <div className="flex items-center justify-between text-sm text-muted-foreground border-t border-b py-4">
-          <div className="flex items-center gap-2">
-            <Users className="h-5 w-5 text-primary" />
-            <span className="text-base">
-              Hasta {accommodation?.guests} huéspedes
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CreditCard className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-foreground text-base">
-              ${accommodation?.price}/noche
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <h4 className="font-semibold mb-3">Comodidades:</h4>
-          <div className="flex flex-wrap gap-3">
-            {accommodation?.features.map((feature) => (
-              <div
-                key={feature}
-                className="flex items-center gap-2 rounded-full border bg-muted px-4 py-2 text-sm"
-              >
-                {featureIcons[feature.toLowerCase()] || featureIcons.default}
-                <span className="capitalize font-medium">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="pt-4">
-          <Link href="#contact" passHref>
-            <Button size="lg" className="w-full md:w-auto">
-              Consultar Disponibilidad
-            </Button>
-          </Link>
+        <div className="mt-3 grid grid-cols-5 gap-2 md:gap-3">
+          {images.map((img, i) => (
+            <button
+              key={`${img.imageUrl}-${i}`}
+              type="button"
+              onClick={() => setActive(i)}
+              aria-label={`Ver foto: ${img.description}`}
+              aria-pressed={i === active}
+              className={cn(
+                'relative aspect-square overflow-hidden rounded-lg bg-muted outline-offset-2 transition-opacity',
+                i === active ? 'ring-2 ring-primary ring-offset-2 ring-offset-background' : 'opacity-70 hover:opacity-100'
+              )}
+            >
+              <Image src={img.imageUrl} alt="" fill sizes="120px" className="object-cover" />
+            </button>
+          ))}
         </div>
       </div>
-    </div>
+
+      {/* Detalle */}
+      <div className={cn('flex flex-col lg:col-span-5 lg:pt-2', reverse && 'lg:order-1')}>
+        <p className="eyebrow">{accommodation.location}</p>
+        <h3 className="mt-3 font-headline text-4xl leading-tight">{accommodation.name}</h3>
+        <p className="mt-4 text-[17px] text-muted-foreground">{accommodation.description}</p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-y py-4 text-[15px]">
+          <span className="flex items-center gap-2">
+            <Users className="h-5 w-5 text-primary" strokeWidth={1.4} />
+            Hasta {accommodation.guests} huéspedes
+          </span>
+          <span className="font-medium">{formatPrice(accommodation.price)}</span>
+        </div>
+
+        <h4 className="mt-6 text-sm font-semibold">Qué incluye</h4>
+        <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+          {accommodation.features.map((feature) => (
+            <li key={feature} className="flex items-center gap-3 text-[15px]">
+              {featureIcons[feature.toLowerCase()] ?? featureIcons.default}
+              <span className="first-letter:uppercase">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button asChild className="h-12 rounded-full px-6">
+            <a
+              href={whatsappUrl(`Hola! Quiero consultar disponibilidad del ${accommodation.name}.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Consultar por WhatsApp
+            </a>
+          </Button>
+          <Button asChild variant="outline" className="h-12 rounded-full bg-transparent px-6">
+            <Link href="#contact">Enviar consulta</Link>
+          </Button>
+        </div>
+      </div>
+    </article>
   );
 }
 
-
 export default function Accommodations() {
   return (
-    <section id="accommodations" className="bg-background py-16 md:py-28">
-      <div className="container">
-        <div className="mb-16 text-center">
-          <h2 className="font-headline text-4xl font-bold md:text-5xl">Nuestros Alojamientos</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg md:text-xl">
-            Diseñados para ofrecer comodidad y espacio.
-          </p>
+    <section id="accommodations" className="container scroll-mt-20 py-20 md:py-28">
+      <div className="mb-12 flex flex-wrap items-end justify-between gap-6 md:mb-16">
+        <div>
+          <p className="eyebrow">Alojamiento</p>
+          <h2 className="section-title">Nuestros departamentos</h2>
         </div>
-        <div className="space-y-20">
-          {accommodationsData.map((acc, index) => (
-            <AccommodationDisplay key={acc?.id} accommodation={acc} reverseLayout={index % 2 !== 0} />
-          ))}
-        </div>
+        <p className="max-w-md text-muted-foreground">
+          Dos departamentos independientes, con cochera, asador y cocina completa. A 300 metros del lago.
+        </p>
+      </div>
+      <div className="space-y-20 md:space-y-28">
+        {accommodationsData.map((acc, index) => (
+          <AccommodationDisplay key={acc.id} accommodation={acc} reverse={index % 2 !== 0} />
+        ))}
       </div>
     </section>
   );
