@@ -31,9 +31,9 @@ export const accommodationsData = [
   {
     id: 1,
     name: "Departamento 1",
-    type: "cabaña",
-    location: "sierras de cordoba",
-    description: "Còmodas instalaciones ,un lugar ideal para descanzar, seguro y cerca de todo. Perfecto para salir en familia",
+    type: "departamento",
+    location: "Embalse, Valle de Calamuchita",
+    description: "Cómodo, seguro y cerca de todo. Un lugar ideal para descansar y perfecto para salir en familia.",
     price: "Consultar",
     guests: 4,
     features: ["cochera", "asador", "wifi", "parque", "ventilador", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina completa", "smart tv"],
@@ -50,11 +50,11 @@ export const accommodationsData = [
   {
     id: 2,
     name: "Departamento 2",
-    type: "cabaña",
-    location: "sierras de cordoba",
-    description: "Disfruta de la tranquilidad de las sierras con todas las comodidades que necesitas para una estancia inolvidable.",
+    type: "departamento",
+    location: "Embalse, Valle de Calamuchita",
+    description: "Disfrutá la tranquilidad de Embalse con todas las comodidades que necesitás para una estadía inolvidable, a pocos pasos del lago.",
     price: "Consultar",
-    guests: 5,
+    guests: 4,
     features: ["cochera", "asador", "wifi", "ventilador", "cama 2 plazas", "camas individuales", "vista a las sierras", "cocina completa", "smart tv"],
     image: getImage('cabin-1'),
     interiorImages: [

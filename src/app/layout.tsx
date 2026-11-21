@@ -5,9 +5,9 @@ import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.altosdeyaravi.com.ar'),
-  title: 'Altos de Yaraví | Cabañas en Embalse, Calamuchita',
+  title: 'Altos de Yaraví | Departamentos en Embalse, Calamuchita',
   description:
-    'Descubre nuestras cabañas en Embalse de Calamuchita, Córdoba. Un lugar ideal para el descanso, la naturaleza y la aventura. ¡Reserva tu estancia!',
+    'Dos departamentos equipados a 300 metros del lago de Embalse, Valle de Calamuchita, Córdoba. Ideales para descansar en familia. Consultá disponibilidad.',
   alternates: {
     canonical: '/',
   },
@@ -24,7 +24,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Belleza&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
           rel="stylesheet"
         />
         <script
@@ -36,7 +36,7 @@ export default function RootLayout({
               "name": "Altos de Yaraví | alojamiento en Embalse",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "El Yaraví 72",
+                "streetAddress": "El Yaraví 75",
                 "addressLocality": "Embalse",
                 "addressRegion": "Córdoba",
                 "postalCode": "5856",
@@ -45,7 +45,7 @@ export default function RootLayout({
               "telephone": "",
               "priceRange": "$$",
               "image": "https://res.cloudinary.com/julian-soto/image/upload/v1760468586/altos%20de%20yaravi/20251003_131956_cpxqtp.jpg",
-              "description": "Departamentos en Embalse de Calamuchita, Córdoba. Ideal para el descanso, la naturaleza y la aventura.",
+              "description": "Dos departamentos a 300 metros del lago de Embalse, Valle de Calamuchita, Córdoba. Ideales para el descanso en familia.",
               "url": "https://www.altosdeyaravi.com.ar"
             })
           }}

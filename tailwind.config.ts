@@ -10,15 +10,18 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: {
+        DEFAULT: '1rem',
+        md: '2rem',
+      },
       screens: {
-        '2xl': '1400px',
+        '2xl': '1280px',
       },
     },
     extend: {
       fontFamily: {
-        body: ['Alegreya', 'serif'],
-        headline: ['Belleza', 'sans-serif'],
+        body: ['"Hanken Grotesk"', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
+        headline: ['Newsreader', 'Georgia', '"Times New Roman"', 'serif'],
         code: ['monospace'],
       },
       colors: {
@@ -47,6 +50,7 @@ const config: Config = {
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
+          soft: 'hsl(var(--accent-soft))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
