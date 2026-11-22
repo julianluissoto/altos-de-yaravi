@@ -22,9 +22,29 @@ function GalleryGrid({ images }: { images: ImagePlaceholder[] }) {
   const visible = images.slice(0, VISIBLE);
   const hidden = images.length - visible.length;
 
+  const go = (delta: number) =>
+    setSelected((i) => (i === null ? i : (i + delta + images.length) % images.length));
+
   const step = (delta: number) => (e: React.MouseEvent) => {
     e.stopPropagation();
-    setSelected((i) => (i === null ? i : (i + delta + images.length) % images.length));
+    go(delta);
+  };
+
+  // Deslizar con el dedo en el carrusel: izquierda = siguiente, derecha = anterior.
+  const touchStart = React.useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    // Solo cuenta si el gesto es mayormente horizontal y de al menos 50px.
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
   };
 
   return (
@@ -67,7 +87,11 @@ function GalleryGrid({ images }: { images: ImagePlaceholder[] }) {
               <DialogHeader className="sr-only">
                 <DialogTitle>{current.title ?? 'Foto ampliada'}</DialogTitle>
               </DialogHeader>
-              <div className="relative mt-6 aspect-[3/2] w-full">
+              <div
+                className="relative mt-6 aspect-[3/2] w-full touch-pan-y select-none"
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+              >
                 <Image src={current.imageUrl} alt={current.title ?? ''} fill sizes="100vw" className="rounded-lg object-contain" />
               </div>
               <div className="flex items-center justify-between gap-4 px-1">
