@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Linkedin } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
+import { instagramUrl } from '@/lib/whatsapp';
 import VisitCounter from '../shared/visit-counter';
 
 const links = [
@@ -20,6 +21,15 @@ export default function Footer() {
             <p className="mt-2 text-sm text-background/70">
               El Yaraví 75, Embalse · Valle de Calamuchita, Córdoba
             </p>
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-background/70 transition-colors hover:text-accent-soft"
+            >
+              <Instagram className="h-4 w-4" strokeWidth={1.5} />
+              Seguinos en Instagram
+            </a>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-background/70">
             {links.map((l) => (
