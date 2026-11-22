@@ -2,26 +2,25 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { galleryImages } from '@/lib/placeholder-images';
+import { instagramUrl } from '@/lib/whatsapp';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 
-// Mosaico que se repite cada 6 fotos: en escritorio ocupa 3 filas de 4 columnas.
-const tileClasses = [
-  'col-span-2 md:row-span-2',
-  '',
-  'md:row-span-2',
-  '',
-  'md:col-span-2',
-  'col-span-2',
-];
+// Cantidad de fotos visibles en el mosaico; el resto se ve en el carrusel.
+const VISIBLE = 5;
+
+// Mosaico de 5 fotos: en escritorio, una grande a la izquierda y 4 chicas a la derecha.
+const tileClasses = ['col-span-2 md:row-span-2', '', '', '', ''];
 
 function GalleryGrid({ images }: { images: ImagePlaceholder[] }) {
   const [selected, setSelected] = React.useState<number | null>(null);
   const current = selected !== null ? images[selected] : null;
+  const visible = images.slice(0, VISIBLE);
+  const hidden = images.length - visible.length;
 
   const step = (delta: number) => (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -31,27 +30,34 @@ function GalleryGrid({ images }: { images: ImagePlaceholder[] }) {
   return (
     <>
       <div className="grid auto-rows-[150px] grid-cols-2 gap-2 md:auto-rows-[200px] md:grid-cols-4 md:gap-3">
-        {images.map((image, index) => (
-          <button
-            key={image.id}
-            type="button"
-            onClick={() => setSelected(index)}
-            aria-label={`Ampliar foto: ${image.title ?? ''}`}
-            className={cn(
-              'group relative overflow-hidden rounded-xl bg-muted',
-              tileClasses[index % tileClasses.length]
-            )}
-          >
-            <Image
-              src={image.imageUrl}
-              alt={image.title ?? ''}
-              data-ai-hint={image.imageHint}
-              fill
-              sizes="(max-width: 768px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-          </button>
-        ))}
+        {visible.map((image, index) => {
+          const isMore = hidden > 0 && index === visible.length - 1;
+          return (
+            <button
+              key={image.id}
+              type="button"
+              // "Ver más" abre el carrusel en la primera foto que no se ve en el mosaico.
+              onClick={() => setSelected(isMore ? visible.length : index)}
+              aria-label={isMore ? `Ver ${hidden} fotos más` : `Ampliar foto: ${image.title ?? ''}`}
+              className={cn('group relative overflow-hidden rounded-xl bg-muted', tileClasses[index])}
+            >
+              <Image
+                src={image.imageUrl}
+                alt={image.title ?? ''}
+                data-ai-hint={image.imageHint}
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              {isMore && (
+                <span className="absolute inset-0 flex flex-col items-center justify-center bg-black/55 text-white transition-colors group-hover:bg-black/65">
+                  <span className="font-headline text-3xl leading-none">+{hidden}</span>
+                  <span className="mt-1 text-sm font-medium">Ver más</span>
+                </span>
+              )}
+            </button>
+          );
+        })}
       </div>
 
       <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
@@ -96,9 +102,20 @@ export default function Gallery() {
           <p className="eyebrow">Galería</p>
           <h2 className="section-title">Embalse en fotos</h2>
         </div>
-        <p className="max-w-md text-muted-foreground">
-          El lago, el dique y los paisajes que vas a tener a pocos minutos.
-        </p>
+        <div className="max-w-md">
+          <p className="text-muted-foreground">
+            El lago, el dique y los paisajes que vas a tener a pocos minutos.
+          </p>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-accent"
+          >
+            <Instagram className="h-4 w-4" strokeWidth={1.75} />
+            Seguinos en Instagram
+          </a>
+        </div>
       </div>
       <GalleryGrid images={galleryImages} />
     </section>

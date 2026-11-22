@@ -1,3 +1,5 @@
+export const instagramUrl = 'https://www.instagram.com/altosdeyaravi/';
+
 export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_API_NUMBER ?? '';
 
 /** Arma el link de WhatsApp con un mensaje opcional precargado. */

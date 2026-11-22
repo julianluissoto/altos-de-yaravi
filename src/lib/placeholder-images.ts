@@ -163,6 +163,27 @@ const galleryImages = [
     imageUrl:
       "https://www.rionegro.com.ar/wp-content/uploads/2022/12/Central-Nuclear-Embalse-Aerea-1.jpg?w=1200&h=630&crop=1",
     imageHint: "central nuclear",
+  },
+  {
+    id: "gallery-7",
+    title: "Mirador del Cerro Pistarini",
+    imageUrl:
+      "https://res.cloudinary.com/julian-soto/image/upload/v1795305715/altos%20de%20yaravi/rned_cerro_pistarini_mirador_reserva_rcgyco.jpg",
+    imageHint: "mirador cerro",
+  },
+  {
+    id: "gallery-8",
+    title: "Bienvenidos a Embalse",
+    imageUrl:
+      "https://res.cloudinary.com/julian-soto/image/upload/v1795305713/altos%20de%20yaravi/images_4_pycx6v.jpg",
+    imageHint: "cartel embalse",
+  },
+  {
+    id: "gallery-9",
+    title: "Mural de Nahuel Molina",
+    imageUrl:
+      "https://res.cloudinary.com/julian-soto/image/upload/v1795305809/altos%20de%20yaravi/images_1_tpaoa9.jpg",
+    imageHint: "mural embalse",
   }
 ]
 
