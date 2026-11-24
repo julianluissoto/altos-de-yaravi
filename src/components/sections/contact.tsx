@@ -39,7 +39,8 @@ export default function Contact() {
   useEffect(() => setMinDate(todayISO()), []);
 
   useEffect(() => {
-    if (!state.message) return;
+    // Bloqueo por país: se muestra el aviso con el botón de WhatsApp, no un toast.
+    if (!state.message || state.whatsappText) return;
     toast({
       title: state.issues ? 'Error' : 'Consulta enviada',
       description: state.message,
@@ -76,7 +77,7 @@ export default function Contact() {
             </div>
             <div className="flex justify-between gap-6 border-b py-3.5">
               <dt className="text-muted-foreground">Departamentos</dt>
-              <dd className="text-right">2, para 4 y 5 personas</dd>
+              <dd className="text-right">2, para 4 personas</dd>
             </div>
           </dl>
         </div>
@@ -135,6 +136,21 @@ export default function Contact() {
               className="min-h-[120px] rounded-lg bg-background"
             />
           </div>
+
+          {state.whatsappText && (
+            <Alert className="sm:col-span-2">
+              <AlertTitle>¿Estás fuera de Argentina?</AlertTitle>
+              <AlertDescription>
+                <p>{state.message} Ya dejamos tu mensaje listo para enviar.</p>
+                <Button asChild className="mt-4 h-11 rounded-full px-6">
+                  <a href={whatsappUrl(state.whatsappText)} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" />
+                    Continuar por WhatsApp
+                  </a>
+                </Button>
+              </AlertDescription>
+            </Alert>
+          )}
 
           {state.issues && (
             <Alert variant="destructive" className="sm:col-span-2">

@@ -19,7 +19,7 @@ const placeholderImages = [
   },
   {
     id: "cabin-1",
-    description: "Departamento para 4/5 personas",
+    description: "Departamento para 4 personas",
     imageUrl:
       "https://res.cloudinary.com/julian-soto/image/upload/v1770150257/altos%20de%20yaravi/patio_g1cw14.jpg",
     imageHint: "departamento exterior",
